@@ -10,12 +10,63 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        TabView {
+            OpportunitiesView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "crc")//get noun project from nelson
+                        Text("Oppurtunity")
+                    }
+            }
+                .tag(0)
+            
+            UploadView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "home")//get noun project from nelson
+                            Text("Upload")
+                        }
+                }
+                .tag(1)
+            
+            ProfileView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "map")//get noun project from nelson
+                            Text("Profile")
+                        }
+                }
+                .tag(2)
+        }
+        }
+        
+        
+        
+        
     }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
+struct OpportunitiesView: View {
+    var body: some View {
+        Text("Opportunities View")
+    }
+}
+
+struct UploadView: View {
+    var body: some View {
+        Text("Upload View")
+    }
+}
+
+struct ProfileView: View {
+    var body: some View {
+        Text("Profile View")
+    }
+}
+
