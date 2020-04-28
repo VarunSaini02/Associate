@@ -15,7 +15,7 @@ struct ContentView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "crc")//get noun project from nelson
-                        Text("Oppurtunities")
+                        Text("Oppurtunity")
                     }
             }
                 .tag(0)
