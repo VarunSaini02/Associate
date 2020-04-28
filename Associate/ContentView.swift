@@ -15,7 +15,7 @@ struct ContentView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "crc")//get noun project from nelson
-                        Text("Oppurtunity")
+                        Text("Oppurtunities")
                     }
             }
                 .tag(0)
@@ -24,7 +24,7 @@ struct ContentView: View {
                     .tabItem {
                         VStack {
                             Image(systemName: "home")//get noun project from nelson
-                            Text("Upload")
+                            Text("Uploads")
                         }
                 }
                 .tag(1)
@@ -33,7 +33,7 @@ struct ContentView: View {
                     .tabItem {
                         VStack {
                             Image(systemName: "map")//get noun project from nelson
-                            Text("Profile")
+                            Text("Profiles")
                         }
                 }
                 .tag(2)

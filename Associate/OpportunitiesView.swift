@@ -10,7 +10,7 @@ import SwiftUI
 
 struct OpportunitiesView: View {
     var body: some View {
-        Text("Opportunities View")
+        Text("Opportunities Views")
     }
 }
 
