@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Associate
 //
-//  Created by 90304566 on 4/28/20.
+//  Created by Varun Saini, Bela Konkoly, and Blake Branvold on 4/28/20.
 //  Copyright © 2020 Eden Prairie Schools. All rights reserved.
 //
 
