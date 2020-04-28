@@ -52,21 +52,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct OpportunitiesView: View {
-    var body: some View {
-        Text("Opportunities View")
-    }
-}
-
-struct UploadView: View {
-    var body: some View {
-        Text("Upload View")
-    }
-}
-
-struct ProfileView: View {
-    var body: some View {
-        Text("Profile View")
-    }
-}
-
