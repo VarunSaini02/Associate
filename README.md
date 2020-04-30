@@ -5,9 +5,12 @@ Development Roles: Varun Saini - Object Framework & Primary Code Developer Blake
 
 Objective: The primary goal for this app is to create an interface in which the user can input and manage volunteer information, as well as research new organizations to work with.
 
-Hierarchy:
+## Hierarchy:
 Library: Entire network
+
 Book: Profile
+
 Chapter: Supercategory
+
 Page: Events
 
