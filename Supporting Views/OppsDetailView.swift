@@ -10,7 +10,7 @@ import SwiftUI
 
 struct OppsDetailView: View {
     var body: some View {
-        Text("Opps Detail View")
+        Text("Opps Detail View!")
     }
 }
 
