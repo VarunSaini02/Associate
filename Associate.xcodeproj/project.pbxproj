@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6EB513C62458EA57004D608B /* OpportunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB513C52458EA57004D608B /* OpportunitiesView.swift */; };
+		6EB513C62458EA57004D608B /* OppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB513C52458EA57004D608B /* OppsView.swift */; };
 		6EB513C82458EA70004D608B /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB513C72458EA70004D608B /* UploadView.swift */; };
 		6EB513CA2458EA8B004D608B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB513C92458EA8B004D608B /* ProfileView.swift */; };
+		6EE12513245B109300966C4A /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE12512245B109300966C4A /* ProfileDetailView.swift */; };
+		6EE12515245B10BC00966C4A /* OppsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE12514245B10BC00966C4A /* OppsDetailView.swift */; };
+		6EE12518245B151E00966C4A /* OppsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE12517245B151E00966C4A /* OppsData.swift */; };
 		EF5221A72458911A00361595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5221A62458911A00361595 /* AppDelegate.swift */; };
 		EF5221A92458911A00361595 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5221A82458911A00361595 /* SceneDelegate.swift */; };
 		EF5221AC2458911B00361595 /* Associate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF5221AA2458911A00361595 /* Associate.xcdatamodeld */; };
@@ -43,9 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6EB513C52458EA57004D608B /* OpportunitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesView.swift; sourceTree = "<group>"; };
+		6EB513C52458EA57004D608B /* OppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppsView.swift; sourceTree = "<group>"; };
 		6EB513C72458EA70004D608B /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		6EB513C92458EA8B004D608B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		6EE12512245B109300966C4A /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
+		6EE12514245B10BC00966C4A /* OppsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppsDetailView.swift; sourceTree = "<group>"; };
+		6EE12517245B151E00966C4A /* OppsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppsData.swift; sourceTree = "<group>"; };
 		EF5221A32458911A00361595 /* Associate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Associate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5221A62458911A00361595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF5221A82458911A00361595 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,9 +98,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6EE12511245B107700966C4A /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				6EE12512245B109300966C4A /* ProfileDetailView.swift */,
+				6EE12514245B10BC00966C4A /* OppsDetailView.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		6EE12516245B150200966C4A /* Supporting Data */ = {
+			isa = PBXGroup;
+			children = (
+				6EE12517245B151E00966C4A /* OppsData.swift */,
+			);
+			path = "Supporting Data";
+			sourceTree = "<group>";
+		};
 		EF52219A2458911A00361595 = {
 			isa = PBXGroup;
 			children = (
+				6EE12516245B150200966C4A /* Supporting Data */,
+				6EE12511245B107700966C4A /* Supporting Views */,
 				EF5221A52458911A00361595 /* Associate */,
 				EF5221BF2458912E00361595 /* AssociateTests */,
 				EF5221CA2458912E00361595 /* AssociateUITests */,
@@ -122,7 +147,7 @@
 				EF5221DB245A92E100361595 /* Chapter.swift */,
 				EF5221DD245A930500361595 /* Page.swift */,
 				EF5221AD2458911B00361595 /* ContentView.swift */,
-				6EB513C52458EA57004D608B /* OpportunitiesView.swift */,
+				6EB513C52458EA57004D608B /* OppsView.swift */,
 				6EB513C72458EA70004D608B /* UploadView.swift */,
 				6EB513C92458EA8B004D608B /* ProfileView.swift */,
 				EF5221AF2458912D00361595 /* Assets.xcassets */,
@@ -291,12 +316,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5221DA245A92C300361595 /* Book.swift in Sources */,
-				6EB513C62458EA57004D608B /* OpportunitiesView.swift in Sources */,
+				6EB513C62458EA57004D608B /* OppsView.swift in Sources */,
+				6EE12515245B10BC00966C4A /* OppsDetailView.swift in Sources */,
+				6EE12513245B109300966C4A /* ProfileDetailView.swift in Sources */,
 				EF5221A72458911A00361595 /* AppDelegate.swift in Sources */,
 				EF5221DC245A92E100361595 /* Chapter.swift in Sources */,
 				EF5221DE245A930500361595 /* Page.swift in Sources */,
 				EF5221AC2458911B00361595 /* Associate.xcdatamodeld in Sources */,
+				6EE12518245B151E00966C4A /* OppsData.swift in Sources */,
 				6EB513C82458EA70004D608B /* UploadView.swift in Sources */,
 				EF5221AE2458911B00361595 /* ContentView.swift in Sources */,
 				EF5221E2245A978E00361595 /* Profile.swift in Sources */,

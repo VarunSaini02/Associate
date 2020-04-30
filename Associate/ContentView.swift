@@ -11,14 +11,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            OpportunitiesView()
+            OppsView()
                 .tabItem {
                     VStack {
                         Image(systemName: "crc")//get noun project from nelson
                         Text("Oppurtunities")
                     }
             }
-                .tag(0)
+                .tag(1)
             
             UploadView()
                     .tabItem {
@@ -27,7 +27,7 @@ struct ContentView: View {
                             Text("Uploads")
                         }
                 }
-                .tag(1)
+                .tag(0)
             
             ProfileView()
                     .tabItem {
