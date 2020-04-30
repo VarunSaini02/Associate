@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct OpportunitiesDetailView: View {
+struct OppsDetailView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Opps Detail View!")
     }
 }
 
-struct OpportunitiesDetailView_Previews: PreviewProvider {
+struct OppsDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OpportunitiesDetailView()
+        OppsDetailView()
     }
 }
