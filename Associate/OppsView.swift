@@ -12,11 +12,10 @@ struct OppsView: View {
     
     var opps: [OppsData] = testData
     
-    
     var body: some View {
-        
         NavigationView {
         List(opps) { item in
+         //   NavigationLink(destination: OppsDetailView, label: <#T##() -> _#>)
                 VStack(alignment: .leading){
                     Text(item.name)
                     HStack(alignment: .top) {
@@ -26,8 +25,8 @@ struct OppsView: View {
                         Text("12")
                             .font(.subheadline)
                     }
-                    
-                    
+
+
                 }
                 }
         .navigationBarTitle(Text("Opportunities"))
