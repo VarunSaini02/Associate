@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct OppsDetailView: View {
+    
+    var opps: [OppsData] = testData
+    
     var body: some View {
-        Text("Opps Detail View!")
+        NavigationView{
+        VStack{
+            Text("DetailView")
+            
+            }
+        }.navigationBarTitle("Feed My Starving Children")
     }
 }
 
 struct OppsDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OppsDetailView()
+        OppsDetailView(opps: testData)
     }
 }
