@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct OppsData: Identifiable{
+struct OppsData: Identifiable, Hashable{
     var id: Int
     var location: String;
     var spotsLeft: Int;
