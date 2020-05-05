@@ -14,8 +14,9 @@ struct OppsView: View {
     
     var body: some View {
         NavigationView {
-        List(opps) { item in
-         //   NavigationLink(destination: OppsDetailView, label: <#T##() -> _#>)
+            List(opps) { item in
+                NavigationLink(destination: OppsDetailView(opps: self.opps)) {
+                Group {
                 VStack(alignment: .leading){
                     Text(item.name)
                     HStack(alignment: .top) {
@@ -27,6 +28,8 @@ struct OppsView: View {
                     }
 
 
+                }
+                }
                 }
                 }
         .navigationBarTitle(Text("Opportunities"))
