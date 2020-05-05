@@ -8,19 +8,19 @@
 //
 //import UIKit
 //
-//class Profile {
-//    var name: Name
-//    var email: String
-//    var book: Boo
-//
-//    init(firstName: String, lastName: String, email: String, book: Book) {
-//        self.name = Name(firstName: firstName, lastName: lastName)
-//        self.email = email
-//        self.book = book
-//    }
-//}
-//
-//struct Name {
-//    var firstName: String
-//    var lastName: String
-//}
+class Profile {
+    var name: Name
+    var email: String
+    var book: Book
+
+    init(firstName: String, lastName: String, email: String, book: Book) {
+        self.name = Name(firstName: firstName, lastName: lastName)
+        self.email = email
+        self.book = book
+    }
+}
+
+struct Name {
+    var firstName: String
+    var lastName: String
+}
