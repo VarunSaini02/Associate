@@ -14,12 +14,13 @@ struct ProfileDetailView: View {
             Image("profilePic") //insert picture user selects
                 .resizable()
                 .scaledToFit()
-                .cornerRadius(45)
+                .cornerRadius(60)
                 .padding()
             
             Text("Bela Konkoly") //insert name of user
+            Text("Profile Functions")
             List(0 ..< 5) { item in
-                Text("Upload Hours")
+                Text("Edit Profile")
                        
                    }
                }
