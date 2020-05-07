@@ -10,7 +10,13 @@ import SwiftUI
 
 struct UploadView: View {
     var body: some View {
-        Text("Upload Views")
+        VStack {
+            Image("eagleNation")
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(45)
+            Text("Upload Views")
+        }
     }
 }
 
