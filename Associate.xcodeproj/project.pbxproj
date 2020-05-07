@@ -27,6 +27,7 @@
 		EF5221DE245A930500361595 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5221DD245A930500361595 /* Page.swift */; };
 		EF5221E2245A978E00361595 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5221E1245A978E00361595 /* Profile.swift */; };
 		EF5221E424611C6400361595 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5221E324611C6400361595 /* Book.swift */; };
+		EF8BECB2246478DE00BE0802 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BECB1246478DE00BE0802 /* Verification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		EF5221DD245A930500361595 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		EF5221E1245A978E00361595 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		EF5221E324611C6400361595 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		EF8BECB1246478DE00BE0802 /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				EF5221E324611C6400361595 /* Book.swift */,
 				EF5221DB245A92E100361595 /* Chapter.swift */,
 				EF5221DD245A930500361595 /* Page.swift */,
+				EF8BECB1246478DE00BE0802 /* Verification.swift */,
 				EF5221AD2458911B00361595 /* ContentView.swift */,
 				6EDAE8452461C0D5005E9253 /* LoginView.swift */,
 				6EB513C52458EA57004D608B /* OppsView.swift */,
@@ -333,6 +336,7 @@
 				EF5221AE2458911B00361595 /* ContentView.swift in Sources */,
 				EF5221E2245A978E00361595 /* Profile.swift in Sources */,
 				6EB513CA2458EA8B004D608B /* ProfileView.swift in Sources */,
+				EF8BECB2246478DE00BE0802 /* Verification.swift in Sources */,
 				EF5221A92458911A00361595 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

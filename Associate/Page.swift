@@ -7,20 +7,28 @@
 //
 
 import UIKit
+import SwiftUI
 
 // Event containing information
 class Page {
-    var name: String
-    var time: DateRange
+    var identifier: String?
+    var time: DateRange?
+    var images: [Image]?
+    var verification: Verification?
     
     struct DateRange {
-        var startDate: Date
-        var endDate: Date
+        var startDate: Date?
+        var endDate: Date?
     }
     
-    init(name: String, startDate: Date, endDate: Date) {
-        self.name = name
+    init(identifier: String?, startDate: Date?, endDate: Date?, images: [Image]?, verification: Verification?) {
+        self.identifier = identifier
         self.time = DateRange(startDate: startDate, endDate: endDate)
+        self.images = images
+        self.verification = verification
+        
+        //how to get hour for page's date (military time)
+        //self.time?.startDate?.getHour()
     }
 }
 
