@@ -25,7 +25,6 @@ class Page {
         self.identifier = identifier
         self.time = DateRange(startDate: startDate, endDate: endDate)
         self.images = images
-        self.verification = verification
         
         //how to get hour for page's date (military time)
         //self.time?.startDate?.getHour()
