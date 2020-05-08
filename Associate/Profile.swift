@@ -14,7 +14,7 @@ class Profile {
     var book: Book
 
     init(firstName: String, lastName: String, email: String, book: Book) {
-        self.name = Name(firstName: firstName, lastName: lastName)
+        self.name = Name(firstName, lastName)
         self.email = email
         self.book = book
     }
@@ -23,4 +23,9 @@ class Profile {
 struct Name {
     var firstName: String
     var lastName: String
+    
+    init(_ firstName: String, _ lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
 }
