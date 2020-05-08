@@ -10,15 +10,16 @@ import UIKit
 import SwiftUI
 
 class Verification {
-    enum VerifyType {
-        case direct
-        case images
+    enum VerificationType {
+        case direct // organizer verifies through their own account (most reliable)
+        case images // pictures of volunteer slips, signatures, or other forms of proof
+        case contact // contact information (name, email, phone, etc.) for someone who can verify (last resort)
     }
-    
-    var types = [VerifyType]()
+
+    var types = [VerificationType]()
     var images: [Image]?
     
-    init (images: [Image]? = nil, types: [VerifyType]) {
+    init (images: [Image]? = nil, types: [VerificationType]) {
         self.images = images
         
         for type in types where !self.types.contains(type) {
@@ -26,14 +27,7 @@ class Verification {
         }
     }
     
-    func removeType(typesToRemove: [VerifyType]) {
+    func removeType(typesToRemove: [VerificationType]) {
         self.types.removeAll { typesToRemove.contains($0) }
-        
-        /*
-        //expanded closure
-        self.types.removeAll(where: { (type) -> Bool in
-            return typesToRemove.contains(type)
-        })
-        */
     }
 }
