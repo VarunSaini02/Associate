@@ -12,6 +12,9 @@ struct OppsView: View {
     
     var opps: [OppsData] = testData
     
+   
+    
+    
     var body: some View {
         NavigationView {
             List(opps) { item in
@@ -26,6 +29,7 @@ struct OppsView: View {
                         Text("12")
                             .font(.subheadline)
                     }
+                    Spacer()
 
 
                 }
@@ -33,6 +37,10 @@ struct OppsView: View {
                 }
                 }
         .navigationBarTitle(Text("Opportunities"))
+            .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
+                Text("Sort")
+            }
+            )
         }
     
     }
