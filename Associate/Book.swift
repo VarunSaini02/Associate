@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SwiftUI
 
 class Book {
     var chapters: [Chapter]
     
-    init(chapters: [Chapter]) {
+    init(chapters: [Chapter] = [Chapter]()) {
         self.chapters = chapters
     }
 }

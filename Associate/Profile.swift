@@ -5,9 +5,10 @@
 //  Created by 90304566 on 4/30/20.
 //  Copyright © 2020 Eden Prairie Schools. All rights reserved.
 //
-//
-//import UIKit
-//
+
+import UIKit
+import SwiftUI
+
 class Profile {
     var name: Name
     var email: String

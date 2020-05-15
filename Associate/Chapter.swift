@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SwiftUI
 
 // Supercategory containing pages (events)
 class Chapter {
     var pages: [Page]
     var identifier: String
 
-    init(pages: [Page], identifier: String) {
+    init(pages: [Page] = [Page](), identifier: String) {
         self.pages = pages
         self.identifier = identifier
     }
