@@ -12,6 +12,7 @@ import SwiftUI
 // Event containing information
 class Page {
     var identifier: String?
+    var description: String?
     var time: DateRange?
     var images: [Image]?
     var verification: Verification?
@@ -21,8 +22,9 @@ class Page {
         var endDate: Date?
     }
     
-    init(identifier: String?, startDate: Date?, endDate: Date?, images: [Image]?, verification: Verification?) {
+    init(identifier: String? = nil, description: String? = nil, startDate: Date? = nil, endDate: Date? = nil, images: [Image]? = nil, verification: Verification? = nil) {
         self.identifier = identifier
+        self.description = description
         self.time = DateRange(startDate: startDate, endDate: endDate)
         self.images = images
         
