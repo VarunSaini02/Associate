@@ -25,7 +25,7 @@ struct ProfileView: View {
                 //problem child
                 List(profile.book.chapters[0].pages) { page in
                     NavigationLink(destination: PastEventsView().navigationBarTitle("Past Event")) {
-                        Text(page.identifier!)
+                        Text(page.identifier ?? "")
                     }
                 }
                 NavigationLink(destination: ProfileDetailView().navigationBarTitle("Edit Profile")){
