@@ -10,20 +10,33 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    let profile = Profile()
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("Hello User")
+                Image("profilePic")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+                Text(profile.name.fullName)
+                
+                //problem child
+                List(profile.book.chapters[0].pages) { item in
+                    NavigationLink(destination: PastEventsView().navigationBarTitle("Past Event")){
+                        Text("hello varun")
+                    }
+                }
                 NavigationLink(destination: ProfileDetailView().navigationBarTitle("Edit Profile")){
                     Text("Edit Profile")
-                }
-                
+                }.padding()
             }
             
-                
-            
         }
+        
+        
+        
+    }
 }
 
 struct ProfileView_Previews: PreviewProvider {
@@ -31,4 +44,4 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView()
     }
 }
-}
+

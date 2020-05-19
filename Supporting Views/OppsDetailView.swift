@@ -15,7 +15,6 @@ struct OppsDetailView: View {
     var body: some View {
         NavigationView{
         VStack {
-            Text("DetailView")
             Image("fmsc")
             .resizable()
             .scaledToFit()
@@ -27,7 +26,7 @@ struct OppsDetailView: View {
             }
             
             }
-        }.navigationBarTitle("Feed My Starving Children")
+        }.navigationBarTitle("Info")
     }
 }
 
