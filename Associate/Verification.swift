@@ -15,7 +15,7 @@ class Verification {
         case images // pictures of volunteer slips, signatures, or other forms of proof
         case direct // organizer verifies through their own account (most reliable)
     }
-
+    
     var types = [VerificationType]()
     var images: [Image]?
     var contacts: [Contact]?

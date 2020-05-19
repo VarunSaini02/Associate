@@ -12,7 +12,7 @@ import UIKit
 class Chapter {
     var pages: [Page]
     var identifier: String
-
+    
     init(pages: [Page], identifier: String) {
         self.pages = pages
         self.identifier = identifier

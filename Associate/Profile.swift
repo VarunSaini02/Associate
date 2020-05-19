@@ -13,7 +13,7 @@ class Profile {
     var name: Name
     var email: String
     var book: Book
-
+    
     init(firstName: String, lastName: String, email: String, book: Book) {
         self.name = Name(firstName, lastName)
         self.email = email
