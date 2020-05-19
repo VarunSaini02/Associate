@@ -18,6 +18,7 @@ struct ProfileView: View {
                 Image("profilePic")
                     .resizable()
                     .scaledToFit()
+                .cornerRadius(45)
                     .padding()
                 Text(profile.name.fullName)
                 
