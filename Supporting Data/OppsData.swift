@@ -14,8 +14,8 @@ struct OppsData: Identifiable, Hashable{
     var spotsLeft: Int;
     var name: String;
     var description: String;
-   
-    }
+    
+}
 
 #if DEBUG
 let testData = [

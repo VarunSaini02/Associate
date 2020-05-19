@@ -11,7 +11,7 @@ import SwiftUI
 struct UploadDetailView: View {
     var body: some View {
         VStack{
-           Text("Here is where you would upload new events")
+            Text("Here is where you would upload new events")
             
         }
     }

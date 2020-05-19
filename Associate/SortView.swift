@@ -12,11 +12,11 @@ struct SortView: View {
     var body: some View {
         NavigationView{
             List(0 ..< 5) { item in
-            Text("Sort By")
-                   
-               }
+                Text("Sort By")
+                
+            }
         }
-    .navigationBarTitle("Refine Search")
+        .navigationBarTitle("Refine Search")
     }
 }
 

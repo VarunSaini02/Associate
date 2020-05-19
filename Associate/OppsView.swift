@@ -12,40 +12,40 @@ struct OppsView: View {
     
     var opps: [OppsData] = testData
     
-   
+    
     
     
     var body: some View {
         NavigationView {
             List(opps) { item in
                 NavigationLink(destination: OppsDetailView(opps: self.opps)) {
-                Group {
-                VStack(alignment: .leading){
-                    Text(item.name)
-                    HStack(alignment: .top) {
-                        Text(item.location)
-                            .font(.subheadline)
-                        Spacer()
-                        Text("12")
-                            .font(.subheadline)
+                    Group {
+                        VStack(alignment: .leading){
+                            Text(item.name)
+                            HStack(alignment: .top) {
+                                Text(item.location)
+                                    .font(.subheadline)
+                                Spacer()
+                                Text("12")
+                                    .font(.subheadline)
+                            }
+                            Spacer()
+                            
+                            
+                        }
                     }
-                    Spacer()
-
-
                 }
-                }
-                }
-                }
-        .navigationBarTitle(Text("Opportunities"))
+            }
+            .navigationBarTitle(Text("Opportunities"))
             .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
                 Text("Sort")
-            }
+                }
             )
         }
-    
+        
     }
 }
-    
+
 
 
 struct OppsView_Previews: PreviewProvider {

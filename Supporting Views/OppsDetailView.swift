@@ -14,17 +14,17 @@ struct OppsDetailView: View {
     
     var body: some View {
         NavigationView{
-        VStack {
-            Image("fmsc")
-            .resizable()
-            .scaledToFit()
-            .padding()
-            HStack {
-                Text("Eden Prairie, MN")
-                    .padding(.leading, 15)
-                Text("12 spots left")
-            }
-            
+            VStack {
+                Image("fmsc")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+                HStack {
+                    Text("Eden Prairie, MN")
+                        .padding(.leading, 15)
+                    Text("12 spots left")
+                }
+                
             }
         }.navigationBarTitle("Info")
     }
