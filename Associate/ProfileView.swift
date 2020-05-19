@@ -18,14 +18,14 @@ struct ProfileView: View {
                 Image("profilePic")
                     .resizable()
                     .scaledToFit()
-                .cornerRadius(45)
+                    .cornerRadius(45)
                     .padding()
                 Text(profile.name.fullName)
                 
                 //problem child
-                List(profile.book.chapters[0].pages) { item in
-                    NavigationLink(destination: PastEventsView().navigationBarTitle("Past Event")){
-                        Text("hello varun")
+                List(profile.book.chapters[0].pages) { page in
+                    NavigationLink(destination: PastEventsView().navigationBarTitle("Past Event")) {
+                        Text(page.identifier!)
                     }
                 }
                 NavigationLink(destination: ProfileDetailView().navigationBarTitle("Edit Profile")){
@@ -34,9 +34,6 @@ struct ProfileView: View {
             }
             
         }
-        
-        
-        
     }
 }
 
