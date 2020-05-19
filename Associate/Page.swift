@@ -10,7 +10,8 @@ import UIKit
 import SwiftUI
 
 // Event containing information
-class Page: Identifiable{
+class Page: Identifiable {
+    
     var identifier: String?
     var description: String?
     var time: DateRange?
