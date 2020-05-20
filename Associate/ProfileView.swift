@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    let profile = Profile()
+    @ObservedObject var profile = Profile()
+    @State private var whichChapter = 0
     
     var body: some View {
         NavigationView {
@@ -19,18 +20,25 @@ struct ProfileView: View {
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(45)
-                    .padding()
+                    .padding(.bottom)
                 Text(profile.name.fullName)
                 
-                //problem child
-                List(profile.book.chapters[0].pages) { page in
-                    NavigationLink(destination: PastEventsView().navigationBarTitle("Past Event")) {
-                        Text(page.identifier ?? "")
-                    }
-                }
                 NavigationLink(destination: ProfileDetailView().navigationBarTitle("Edit Profile")){
                     Text("Edit Profile")
                 }.padding()
+                
+                Picker(selection: $whichChapter, label: Text("Choose a Chapter:")) {
+                ForEach(0 ..< profile.book.chapters.count) {
+                    Text(self.profile.book.chapters[$0].identifier)
+                }
+                }.pickerStyle(WheelPickerStyle()).labelsHidden()
+                
+                List(profile.book.chapters[whichChapter].pages) { page in
+                    NavigationLink(destination: PastEventsView(page: page)) {
+                        Text(page.identifier)
+                    }
+                }
+                
             }
             
         }
