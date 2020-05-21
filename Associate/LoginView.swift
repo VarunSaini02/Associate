@@ -11,19 +11,19 @@ import SwiftUI
 struct LoginView: View {
     var body: some View {
         NavigationView{
-        VStack {
-            Text("Enter Username")
-            Text("Enter Password")
-            NavigationLink(destination:
-            ContentView()){
-                Text("Login")
+            VStack {
+                Text("Enter Username")
+                Text("Enter Password")
+                NavigationLink(destination:
+                ContentView()){
+                    Text("Login")
+                }
             }
+            
         }
-  
-        }
-    .navigationBarTitle("")
-    .navigationBarBackButtonHidden(true)
-    .navigationBarHidden(true)
+        .navigationBarTitle("")
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 
