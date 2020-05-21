@@ -10,19 +10,24 @@ import UIKit
 import SwiftUI
 
 // Event containing information
-class Page {
-    var identifier: String?
-    var time: DateRange?
-    var images: [Image]?
-    var verification: Verification?
+class Page: Identifiable, ObservableObject {
+    
+    @Published var identifier: String
+    @Published var description: String?
+    @Published var time: DateRange?
+    @Published var images: [Image]?
+    @Published var verification: Verification?
+
+    var id: String { identifier }
     
     struct DateRange {
         var startDate: Date?
         var endDate: Date?
     }
     
-    init(identifier: String?, startDate: Date?, endDate: Date?, images: [Image]?, verification: Verification?) {
+    init(identifier: String, description: String? = nil, startDate: Date? = nil, endDate: Date? = nil, images: [Image]? = nil, verification: Verification? = nil) {
         self.identifier = identifier
+        self.description = description
         self.time = DateRange(startDate: startDate, endDate: endDate)
         self.images = images
         

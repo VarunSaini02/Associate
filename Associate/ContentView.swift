@@ -18,32 +18,32 @@ struct ContentView: View {
                         Text("Oppurtunities")
                     }
             }
-                .tag(1)
+            .tag(1)
             
             UploadView()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "home")//get noun project from nelson
-                            Text("Uploads")
-                        }
-                }
-                .tag(0)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "home")//get noun project from nelson
+                        Text("Uploads")
+                    }
+            }
+            .tag(0)
             
             ProfileView()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "map")//get noun project from nelson
-                            Text("Profiles")
-                        }
-                }
-                .tag(2)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "map")//get noun project from nelson
+                        Text("Profiles")
+                    }
+            }
+            .tag(2)
         }
-        }
-        
-        
-        
-        
     }
+    
+    
+    
+    
+}
 
 
 struct ContentView_Previews: PreviewProvider {

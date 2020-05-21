@@ -9,8 +9,8 @@
 import UIKit
 import SwiftUI
 
-class Book {
-    var chapters: [Chapter]
+class Book: ObservableObject {
+    @Published var chapters: [Chapter]
     
     init(chapters: [Chapter] = [Chapter]()) {
         self.chapters = chapters

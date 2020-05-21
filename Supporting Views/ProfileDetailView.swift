@@ -21,15 +21,15 @@ struct ProfileDetailView: View {
             Text("Profile Functions")
             List(0 ..< 5) { item in
                 Text("Edit Profile")
-                       
-                   }
-               }
-                }
-            }
                 
-            
-        
-    
+            }
+        }
+    }
+}
+
+
+
+
 
 
 struct ProfileDetailView_Previews: PreviewProvider {
