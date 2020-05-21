@@ -23,7 +23,7 @@ struct ProfileView: View {
                     .padding(.bottom)
                 Text(profile.name.fullName)
                 
-                NavigationLink(destination: ProfileDetailView().navigationBarTitle("Edit Profile")){
+                NavigationLink(destination: ProfileDetailView(profile: profile)){
                     Text("Edit Profile")
                 }.padding()
                 

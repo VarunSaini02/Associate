@@ -9,31 +9,34 @@
 import SwiftUI
 
 struct ProfileDetailView: View {
+    
+    @ObservedObject var profile: Profile
+    
     var body: some View {
-        VStack{
-            Image("profilePic") //insert picture user selects
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(60)
-                .padding()
+        NavigationView {
+            VStack{
+                Image("profilePic") //insert picture user selects
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(60)
+                    .padding()
+                
+                Text(profile.name.fullName)
+                Text("Profile Functions")
             
-            Text("Bela Konkoly") //insert name of user
-            Text("Profile Functions")
-            List(0 ..< 5) { item in
-                Text("Edit Profile")
+                ForEach(0 ..< 5) { _ in
+                    Text(self.profile.email) //proof of concept that email can be displayed
+                        .multilineTextAlignment(.center)
+                }
                 
             }
+            .navigationBarTitle("Edit Profile")
         }
     }
 }
 
-
-
-
-
-
 struct ProfileDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileDetailView()
+        ProfileDetailView(profile: Profile())
     }
 }
