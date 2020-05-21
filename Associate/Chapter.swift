@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 
 // Supercategory containing pages (events)
+
 class Chapter: ObservableObject {
     @Published var pages: [Page]
     @Published var identifier: String

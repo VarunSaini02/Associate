@@ -12,7 +12,7 @@ import SwiftUI
 class Book: ObservableObject {
     @Published var chapters: [Chapter]
     
-    init(chapters: [Chapter]) {
+    init(chapters: [Chapter] = [Chapter]()) {
         self.chapters = chapters
     }
 }
