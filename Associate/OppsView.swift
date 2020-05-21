@@ -17,7 +17,7 @@ struct OppsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Toggle(isOn: $eventType){
+                Toggle(isOn: $eventType) {
                     List(opps) { item in
                         NavigationLink(destination: OppsDetailView(opps: self.opps)) {
                             Group {
@@ -30,17 +30,15 @@ struct OppsView: View {
                                         Text("12")
                                             .font(.subheadline)
                                     }
-                                    
-                                    
                                 }
                             }
                         }
                     }
                 }
             }.navigationBarTitle(Text("Opportunities"))
-            .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
-                Text("Sort")
-            })
+                .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
+                    Text("Sort")
+                })
         }
     }
 }

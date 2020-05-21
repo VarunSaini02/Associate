@@ -24,9 +24,9 @@ struct OppsDetailView: View {
                         .padding(.leading, 15)
                     Text("12 spots left")
                 }
-                
             }
-        }.navigationBarTitle("Info")
+            .navigationBarTitle("Info")
+        }
     }
 }
 

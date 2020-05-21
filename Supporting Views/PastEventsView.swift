@@ -25,7 +25,8 @@ struct PastEventsView: View {
                     Text("Click to add an 'a' to identifier")
                 }
             }
-        }.navigationBarTitle(page.identifier)
+            .navigationBarTitle(page.identifier)
+        }
     }
 }
 
