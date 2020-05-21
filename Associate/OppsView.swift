@@ -21,7 +21,7 @@ struct OppsView: View {
                     List(opps) { item in
                         NavigationLink(destination: OppsDetailView(opps: self.opps)) {
                             Group {
-                                VStack(alignment: .leading){
+                                VStack(alignment: .leading) {
                                     Text(item.name)
                                     HStack(alignment: .top) {
                                         Text(item.location)
@@ -30,7 +30,6 @@ struct OppsView: View {
                                         Text("12")
                                             .font(.subheadline)
                                     }
-                       
                                     
                                     
                                 }
@@ -38,19 +37,12 @@ struct OppsView: View {
                         }
                     }
                 }
-            }
-            
-        }
-        .navigationBarTitle(Text("Opportunities"))
-        .navigationBarItems(trailing: NavigationLink(destination: SortView())) {
-            Text("Sort")
+            }.navigationBarTitle(Text("Opportunities"))
+            .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
+                Text("Sort")
+            })
         }
     }
-
-
-
-
-
 }
 
 struct OppsView_Previews: PreviewProvider {
