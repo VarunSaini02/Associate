@@ -30,17 +30,15 @@ struct OppsView: View {
                                         Text("12")
                                             .font(.subheadline)
                                     }
-                                    
-                                    
                                 }
                             }
                         }
                     }
                 }
             }.navigationBarTitle(Text("Opportunities"))
-            .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
-                Text("Sort")
-            })
+                .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
+                    Text("Sort")
+                })
         }
     }
 }

@@ -38,9 +38,7 @@ struct ProfileView: View {
                         Text(page.identifier)
                     }
                 }
-                
             }
-            
         }
     }
 }
