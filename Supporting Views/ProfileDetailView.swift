@@ -15,7 +15,7 @@ struct ProfileDetailView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Image("profilePic") //insert picture user selects
+                Image(uiImage: #imageLiteral(resourceName: "profilePic")) //insert picture user selects
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(60)
