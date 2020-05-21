@@ -11,45 +11,51 @@ import SwiftUI
 struct OppsView: View {
     
     var opps: [OppsData] = testData
-    
-    
+    @State var eventType = true
     
     
     var body: some View {
         NavigationView {
-            List(opps) { item in
-                NavigationLink(destination: OppsDetailView(opps: self.opps)) {
-                    Group {
-                        VStack(alignment: .leading){
-                            Text(item.name)
-                            HStack(alignment: .top) {
-                                Text(item.location)
-                                    .font(.subheadline)
-                                Spacer()
-                                Text("12")
-                                    .font(.subheadline)
+            VStack {
+                Toggle(isOn: $eventType){
+                    List(opps) { item in
+                        NavigationLink(destination: OppsDetailView(opps: self.opps)) {
+                            Group {
+                                VStack(alignment: .leading){
+                                    Text(item.name)
+                                    HStack(alignment: .top) {
+                                        Text(item.location)
+                                            .font(.subheadline)
+                                        Spacer()
+                                        Text("12")
+                                            .font(.subheadline)
+                                    }
+                       
+                                    
+                                    
+                                }
                             }
-                            Spacer()
-                            
-                            
                         }
                     }
                 }
             }
-            .navigationBarTitle(Text("Opportunities"))
-            .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
-                Text("Sort")
-                }
-            )
+            
         }
-        
+        .navigationBarTitle(Text("Opportunities"))
+        .navigationBarItems(trailing: NavigationLink(destination: SortView())) {
+            Text("Sort")
+        }
     }
+
+
+
+
+
 }
-
-
 
 struct OppsView_Previews: PreviewProvider {
     static var previews: some View {
         OppsView(opps: testData)
     }
 }
+
