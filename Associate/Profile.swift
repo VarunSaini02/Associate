@@ -20,7 +20,7 @@ class Profile: ObservableObject {
         self.book = book
     }
     
-    //just for Tuesday, May 19
+    // Default static values
     init() {
         self.name = Name("Bela","Konkoly")
         self.email = "iOSIsAwesome@gmail.com"
