@@ -8,9 +8,12 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class Book: ObservableObject {
     @Published var chapters: [Chapter]
+    
+    let objectWillChange: ObservableObjectPublisher = ObservableObjectPublisher()
     
     init(chapters: [Chapter]) {
         self.chapters = chapters
