@@ -10,27 +10,22 @@ import SwiftUI
 
 struct PastEventsView: View {
     
-    @EnvironmentObject var profile: Profile
-    @ObservedObject var page: Page
+    //@EnvironmentObject var profile: Profile
+    var page: Page
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text(page.description ?? "No description provided!")
-                    .padding()
-                
-                Button(action: {
-                    self.page.identifier += "a"
-                    
-                    //this proves that the profile is also changing in the environment
-                    print(self.profile.book.chapters[1].pages[0].identifier)
-                }) {
-                    //proof of concept
-                    Text("Click to add an 'a' to identifier")
-                }
+        VStack {
+            Text(page.description ?? "No description provided!")
+                .padding()
+            
+            Button(action: {
+                self.page.identifier += "a"
+            }) {
+                //proof of concept
+                Text("Click to add an 'a' to identifier")
             }
-            .navigationBarTitle(page.identifier)
         }
+        .navigationBarTitle(page.identifier)
     }
 }
 

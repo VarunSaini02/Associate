@@ -18,6 +18,8 @@ class Page: Identifiable, ObservableObject {
     @Published var images: [Image]?
     @Published var verification: Verification?
     
+    var anyCancellable: AnyCancellable? = nil
+    
     var id: String { identifier }
     
     struct DateRange {
@@ -31,8 +33,13 @@ class Page: Identifiable, ObservableObject {
         self.time = DateRange(startDate: startDate, endDate: endDate)
         self.images = images
         
-        //how to get hour for page's date (military time)
-        //self.time?.startDate?.getHour()
+        setUpAnyCancellable()
+    }
+    
+    private func setUpAnyCancellable() {
+        anyCancellable = self.verification?.objectWillChange.sink(receiveValue: { (_) in
+            self.objectWillChange.send()
+        })
     }
 }
 

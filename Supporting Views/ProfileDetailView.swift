@@ -13,25 +13,23 @@ struct ProfileDetailView: View {
     @EnvironmentObject var profile: Profile
     
     var body: some View {
-        NavigationView {
-            VStack{
-                Image(uiImage: #imageLiteral(resourceName: "profilePic")) //insert picture user selects
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(60)
-                    .padding()
-                
-                Text(profile.name.fullName)
-                Text("Profile Functions")
+        VStack{
+            Image(uiImage: #imageLiteral(resourceName: "profilePic")) //insert picture user selects
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(60)
+                .padding()
             
-                ForEach(0 ..< 5) { _ in
-                    Text(self.profile.email) //proof of concept that email can be displayed
-                        .multilineTextAlignment(.center)
-                }
-                
+            Text(profile.name.fullName)
+            Text("Profile Functions")
+            
+            ForEach(0 ..< 5) { _ in
+                Text(self.profile.email) //proof of concept that email can be displayed
+                    .multilineTextAlignment(.center)
             }
-            .navigationBarTitle("Edit Profile")
+            
         }
+        .navigationBarTitle("Edit Profile")
     }
 }
 
