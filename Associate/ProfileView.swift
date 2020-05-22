@@ -28,9 +28,9 @@ struct ProfileView: View {
                 }.padding()
                 
                 Picker(selection: $whichChapter, label: Text("Choose a Chapter:")) {
-                ForEach(0 ..< profile.book.chapters.count) {
-                    Text(self.profile.book.chapters[$0].identifier)
-                }
+                    ForEach(0 ..< profile.book.chapters.count) {
+                        Text(self.profile.book.chapters[$0].identifier)
+                    }
                 }.pickerStyle(WheelPickerStyle()).labelsHidden()
                 
                 List(profile.book.chapters[whichChapter].pages) { page in

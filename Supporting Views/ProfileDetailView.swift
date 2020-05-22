@@ -24,7 +24,7 @@ struct ProfileDetailView: View {
             Text("Profile Functions")
             
             ForEach(0 ..< 5) { _ in
-                Text(self.profile.email) //proof of concept that email can be displayed
+                Text(self.profile.email)
                     .multilineTextAlignment(.center)
             }
             
@@ -32,6 +32,7 @@ struct ProfileDetailView: View {
         .navigationBarTitle("Edit Profile")
     }
 }
+
 
 struct ProfileDetailView_Previews: PreviewProvider {
     static var previews: some View {
