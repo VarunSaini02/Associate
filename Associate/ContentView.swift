@@ -14,8 +14,8 @@ struct ContentView: View {
             OppsView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "crc")//get noun project from nelson
-                        Text("Oppurtunities")
+                        Image(systemName: "globe") //get noun project from nelson
+                        Text("Opportunities")
                     }
             }
             .tag(1)
@@ -23,8 +23,8 @@ struct ContentView: View {
             UploadView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "home")//get noun project from nelson
-                        Text("Uploads")
+                        Image(systemName: "arrow.up.square.fill") //get noun project from nelson
+                        Text("Upload")
                     }
             }
             .tag(0)
@@ -32,8 +32,8 @@ struct ContentView: View {
             ProfileView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "map")//get noun project from nelson
-                        Text("Profiles")
+                        Image(systemName: "person.fill") //get noun project from nelson
+                        Text("Profile")
                     }
             }
             .tag(2)
