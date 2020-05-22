@@ -8,11 +8,14 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class Profile: ObservableObject {
     @Published var name: Name
     @Published var email: String
     @Published var book: Book
+    
+    let objectWillChange: ObservableObjectPublisher = ObservableObjectPublisher()
     
     init(firstName: String, lastName: String, email: String, book: Book) {
         self.name = Name(firstName, lastName)

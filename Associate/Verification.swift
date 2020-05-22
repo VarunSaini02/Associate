@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class Verification: ObservableObject {
     enum VerificationType {
@@ -19,6 +20,8 @@ class Verification: ObservableObject {
     @Published var types = [VerificationType]()
     @Published var images: [Image]?
     @Published var contacts: [Contact]?
+    
+    let objectWillChange: ObservableObjectPublisher = ObservableObjectPublisher()
     
     init (types: [VerificationType], images: [Image]? = nil, contacts: [Contact]? = nil) {
         self.contacts = contacts
