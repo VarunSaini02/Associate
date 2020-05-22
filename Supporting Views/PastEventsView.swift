@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PastEventsView: View {
     
-    //@EnvironmentObject var profile: Profile
+    @EnvironmentObject var profile: Profile
     var page: Page
     
     var body: some View {
@@ -19,10 +19,10 @@ struct PastEventsView: View {
                 .padding()
             
             Button(action: {
-                self.page.identifier += "a"
+                self.page.description? += "a"
             }) {
-                //proof of concept
-                Text("Click to add an 'a' to identifier")
+                // This can't modify the title of the NavigationLink that brought the user to this View, otherwise it sends the user back to the ProfileView. That is why this button has been changed to modify the description, rather than the identifier, which is used as the NavigationLink title.
+                Text("Click to add an 'a' to description")
             }
         }
         .navigationBarTitle(page.identifier)
