@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var profile: Profile
+    
     var body: some View {
         TabView {
             OppsView()

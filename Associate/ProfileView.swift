@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @ObservedObject var profile = Profile()
+    @EnvironmentObject var profile: Profile
     @State private var whichChapter = 0
     
     var body: some View {
@@ -23,7 +23,7 @@ struct ProfileView: View {
                     .padding(.bottom)
                 Text(profile.name.fullName)
                 
-                NavigationLink(destination: ProfileDetailView(profile: profile)){
+                NavigationLink(destination: ProfileDetailView()) {
                     Text("Edit Profile")
                 }.padding()
                 
