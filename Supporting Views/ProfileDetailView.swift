@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProfileDetailView: View {
     
-    @ObservedObject var profile: Profile
+    @EnvironmentObject var profile: Profile
     
     var body: some View {
         NavigationView {
@@ -37,6 +37,6 @@ struct ProfileDetailView: View {
 
 struct ProfileDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileDetailView(profile: Profile())
+        ProfileDetailView()
     }
 }
