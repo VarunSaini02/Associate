@@ -21,8 +21,6 @@ class Verification: ObservableObject {
     @Published var images: [Image]?
     @Published var contacts: [Contact]?
     
-    let objectWillChange: ObservableObjectPublisher = ObservableObjectPublisher()
-    
     init (types: [VerificationType], images: [Image]? = nil, contacts: [Contact]? = nil) {
         self.contacts = contacts
         self.images = images

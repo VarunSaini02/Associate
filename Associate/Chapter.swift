@@ -16,8 +16,6 @@ class Chapter: ObservableObject {
     @Published var pages: [Page]
     @Published var identifier: String
     
-    let objectWillChange: ObservableObjectPublisher = ObservableObjectPublisher()
-    
     init(pages: [Page], identifier: String) {
         self.pages = pages
         self.identifier = identifier

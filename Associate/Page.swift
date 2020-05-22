@@ -18,7 +18,6 @@ class Page: Identifiable, ObservableObject {
     @Published var images: [Image]?
     @Published var verification: Verification?
     
-    let objectWillChange: ObservableObjectPublisher = ObservableObjectPublisher()
     var id: String { identifier }
     
     struct DateRange {
