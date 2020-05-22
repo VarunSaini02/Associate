@@ -14,20 +14,18 @@ struct PastEventsView: View {
     var page: Page
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text(page.description ?? "No description provided!")
-                    .padding()
-                
-                Button(action: {
-                    self.page.identifier += "a"
-                }) {
-                    //proof of concept
-                    Text("Click to add an 'a' to identifier")
-                }
+        VStack {
+            Text(page.description ?? "No description provided!")
+                .padding()
+            
+            Button(action: {
+                self.page.identifier += "a"
+            }) {
+                //proof of concept
+                Text("Click to add an 'a' to identifier")
             }
-            .navigationBarTitle(page.identifier)
         }
+        .navigationBarTitle(page.identifier)
     }
 }
 
