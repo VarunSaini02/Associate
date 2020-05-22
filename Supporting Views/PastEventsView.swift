@@ -17,12 +17,24 @@ struct PastEventsView: View {
         VStack {
             Text(page.description ?? "No description provided!")
                 .padding()
+            Button(action: {
+                self.page.identifier += "a"
+            }) {
+                Text("Click to add an 'a' to page identifier")
+            }
             
             Button(action: {
                 self.page.description? += "a"
             }) {
                 // This can't modify the title of the NavigationLink that brought the user to this View, otherwise it sends the user back to the ProfileView. That is why this button has been changed to modify the description, rather than the identifier, which is used as the NavigationLink title.
-                Text("Click to add an 'a' to description")
+                Text("Click to add an 'a' to page description")
+            }
+            
+            Button(action: {
+                let CP = self.profile.cpIndexOf(page: self.page)
+                self.profile.book.chapters[CP.ch].identifier += "a"
+            }) {
+                Text("Click to add an 'a' to chapter identifier")
             }
         }
         .navigationBarTitle(page.identifier)
