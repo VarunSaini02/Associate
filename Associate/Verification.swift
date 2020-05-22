@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class Verification: ObservableObject {
     enum VerificationType {

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class Profile: ObservableObject {
     @Published var name: Name
@@ -39,6 +40,17 @@ class Profile: ObservableObject {
         
         self.book = Book(chapters: [Chapter(pages: pages, identifier: "Community Service"), Chapter(pages: pages2, identifier: "Food Chapter")])
     }
+    
+    func cpIndexOf(page: Page) -> CPIndex {
+        for ch in 0 ..< book.chapters.count {
+            for pg in 0 ..< book.chapters[ch].pages.count {
+                if page === book.chapters[ch].pages[pg] {
+                    return CPIndex(ch: ch, pg: pg)
+                }
+            }
+        }
+        return CPIndex(ch: -1, pg: -1)
+    }
 }
 
 struct Name {
@@ -51,4 +63,9 @@ struct Name {
         self.lastName = lastName
         self.fullName = firstName + " " + lastName
     }
+}
+
+struct CPIndex {
+    let ch: Int
+    let pg: Int
 }

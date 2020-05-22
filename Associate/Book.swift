@@ -8,10 +8,11 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class Book: ObservableObject {
     @Published var chapters: [Chapter]
-    
+
     init(chapters: [Chapter]) {
         self.chapters = chapters
     }

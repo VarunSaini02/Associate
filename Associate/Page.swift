@@ -8,16 +8,16 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 // Event containing information
 class Page: Identifiable, ObservableObject {
-    
     @Published var identifier: String
     @Published var description: String?
     @Published var time: DateRange?
     @Published var images: [Image]?
     @Published var verification: Verification?
-
+    
     var id: String { identifier }
     
     struct DateRange {
