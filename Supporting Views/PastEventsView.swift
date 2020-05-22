@@ -10,8 +10,8 @@ import SwiftUI
 
 struct PastEventsView: View {
     
-    @EnvironmentObject var profile: Profile
-    @ObservedObject var page: Page
+    //@EnvironmentObject var profile: Profile
+    var page: Page
     
     var body: some View {
         NavigationView {
@@ -21,9 +21,6 @@ struct PastEventsView: View {
                 
                 Button(action: {
                     self.page.identifier += "a"
-                    
-                    //this proves that the profile is also changing in the environment
-                    print(self.profile.book.chapters[1].pages[0].identifier)
                 }) {
                     //proof of concept
                     Text("Click to add an 'a' to identifier")

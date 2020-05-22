@@ -15,10 +15,14 @@ class Profile: ObservableObject {
     @Published var email: String
     @Published var book: Book
     
+    var anyCancellable: AnyCancellable? = nil
+    
     init(firstName: String, lastName: String, email: String, book: Book) {
         self.name = Name(firstName, lastName)
         self.email = email
         self.book = book
+        
+        setUpAnyCancellable()
     }
     
     // Default static values
@@ -39,6 +43,8 @@ class Profile: ObservableObject {
         let pages2 = [Page(identifier: identifier2, description: description2, startDate: startDate, endDate: endDate, verification: verify)]
         
         self.book = Book(chapters: [Chapter(pages: pages, identifier: "Community Service"), Chapter(pages: pages2, identifier: "Food Chapter")])
+        
+        setUpAnyCancellable()
     }
     
     func cpIndexOf(page: Page) -> CPIndex {
@@ -50,6 +56,12 @@ class Profile: ObservableObject {
             }
         }
         return CPIndex(ch: -1, pg: -1)
+    }
+    
+    private func setUpAnyCancellable() {
+        anyCancellable = self.book.objectWillChange.sink(receiveValue: { (_) in
+            self.objectWillChange.send()
+        })
     }
 }
 

@@ -12,8 +12,20 @@ import Combine
 
 class Book: ObservableObject {
     @Published var chapters: [Chapter]
-
+    
+    var anyCancellable: [Int: AnyCancellable?] = [:]
+    
     init(chapters: [Chapter]) {
         self.chapters = chapters
+        
+        setUpAnyCancellable()
+    }
+    
+    private func setUpAnyCancellable() {
+        for ch in 0 ..< chapters.count {
+            anyCancellable[ch] = self.chapters[ch].objectWillChange.sink(receiveValue: { (_) in
+                self.objectWillChange.send()
+            })
+        }
     }
 }
