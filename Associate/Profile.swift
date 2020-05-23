@@ -64,20 +64,3 @@ class Profile: ObservableObject {
         })
     }
 }
-
-struct Name {
-    var firstName: String
-    var lastName: String
-    var fullName: String
-    
-    init(_ firstName: String, _ lastName: String) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.fullName = firstName + " " + lastName
-    }
-}
-
-struct CPIndex {
-    let ch: Int
-    let pg: Int
-}

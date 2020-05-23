@@ -31,6 +31,7 @@
 		EF5221DE245A930500361595 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5221DD245A930500361595 /* Page.swift */; };
 		EF5221E424611C6400361595 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5221E324611C6400361595 /* Book.swift */; };
 		EF8BECB2246478DE00BE0802 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BECB1246478DE00BE0802 /* Verification.swift */; };
+		EFAF7AFA2479C03700742872 /* HelperStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF7AF92479C03700742872 /* HelperStructs.swift */; };
 		EFEE1BD0246F09340057D1E2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEE1BCF246F09340057D1E2 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		EF5221DD245A930500361595 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		EF5221E324611C6400361595 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		EF8BECB1246478DE00BE0802 /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
+		EFAF7AF92479C03700742872 /* HelperStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperStructs.swift; sourceTree = "<group>"; };
 		EFEE1BCF246F09340057D1E2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 			children = (
 				EF5221A62458911A00361595 /* AppDelegate.swift */,
 				EF5221A82458911A00361595 /* SceneDelegate.swift */,
+				EFAF7AF92479C03700742872 /* HelperStructs.swift */,
 				EFEE1BCF246F09340057D1E2 /* Profile.swift */,
 				EF5221E324611C6400361595 /* Book.swift */,
 				EF5221DB245A92E100361595 /* Chapter.swift */,
@@ -348,6 +351,7 @@
 				EF5221AC2458911B00361595 /* Associate.xcdatamodeld in Sources */,
 				6EE12518245B151E00966C4A /* OppsData.swift in Sources */,
 				6E4A5AE3246903B800270583 /* SortData.swift in Sources */,
+				EFAF7AFA2479C03700742872 /* HelperStructs.swift in Sources */,
 				6EB513C82458EA70004D608B /* UploadView.swift in Sources */,
 				6EFDAE07247433A5002906E7 /* PastEventsView.swift in Sources */,
 				EF5221AE2458911B00361595 /* ContentView.swift in Sources */,

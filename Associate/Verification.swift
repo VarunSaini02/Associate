@@ -59,30 +59,3 @@ class Verification: ObservableObject {
     
     
 }
-
-struct Contact {
-    var name: Name?
-    var email: String?
-    var phone: PhoneNumber?
-    
-    init(name: Name? = nil, email: String? = nil, phone: PhoneNumber? = nil) {
-        self.name = name
-        self.email = email
-        self.phone = phone
-    }
-}
-
-struct PhoneNumber {
-    var areaCode: Int
-    var prefix: Int
-    var lineNumber: Int
-    var unformatted: Int
-    
-    init(_ areaCode: Int, _ prefix: Int, _ lineNumber: Int) {
-        self.areaCode = areaCode
-        self.prefix = prefix
-        self.lineNumber = lineNumber
-        
-        unformatted = (areaCode * 10000000) + (prefix * 10000) + lineNumber
-    }
-}
