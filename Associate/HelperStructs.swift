@@ -10,11 +10,30 @@ import UIKit
 import SwiftUI
 import Combine
 
+// GridStack struct — use for building UI
+struct GridStack<T: View>: View {
+    let rows: Int
+    let columns: Int
+    let content: (Int, Int) -> T
+    
+    var body: some View {
+        VStack {
+            ForEach(0 ..< rows) { row in
+                HStack {
+                    ForEach(0 ..< self.columns) { column in
+                        self.content(row, column)
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Used in Profile
 struct Name {
-    var firstName: String
-    var lastName: String
-    var fullName: String
+    let firstName: String
+    let lastName: String
+    let fullName: String
     
     init(_ firstName: String, _ lastName: String) {
         self.firstName = firstName
@@ -32,8 +51,8 @@ struct CPIndex {
 
 // Used in Page
 struct DateRange {
-    var startDate: Date?
-    var endDate: Date?
+    let startDate: Date?
+    let endDate: Date?
 }
 
 // Used to extend Date objects for in Page
