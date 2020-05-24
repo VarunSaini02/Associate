@@ -33,9 +33,16 @@ struct ProfileView: View {
                     }
                 }.pickerStyle(WheelPickerStyle()).labelsHidden()
                 
-                List(profile.book.chapters[whichChapter].pages) { page in
-                    NavigationLink(destination: PastEventsView(page: page)) {
-                        Text(page.identifier)
+                List {
+                    ForEach(profile.book.chapters[whichChapter].pages) { page in
+                        NavigationLink(destination: PastEventsView(page: page)) {
+                            Text(page.identifier)
+                        }
+                    }
+                    .onDelete { (indexSet) in
+                        self.profile.book.chapters[self.whichChapter].pages.remove(atOffsets: indexSet)
+                        self.profile.book.chapters[self.whichChapter].sortPagesAlphabetically()
+                        self.profile.book.chapters[self.whichChapter].setUpAnyCancellable()
                     }
                 }
             }

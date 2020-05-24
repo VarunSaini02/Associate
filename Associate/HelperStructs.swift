@@ -35,10 +35,16 @@ struct Name {
     let lastName: String
     let fullName: String
     
-    init(_ firstName: String, _ lastName: String) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.fullName = firstName + " " + lastName
+    init(_ first: String, _ last: String) {
+        self.firstName = first
+        self.lastName = last
+        self.fullName = first + " " + last
+    }
+    
+    init(_ full: String) {
+        self.fullName = full
+        self.firstName = full.components(separatedBy: " ")[0]
+        self.lastName = full.components(separatedBy: " ")[1]
     }
 }
 

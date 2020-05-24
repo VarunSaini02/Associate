@@ -13,16 +13,16 @@ import Combine
 // Event containing information
 class Page: Identifiable, ObservableObject {
     @Published var identifier: String
-    @Published var description: String?
+    @Published var description: String
     @Published var time: DateRange?
     @Published var images: [Image]?
     @Published var verification: Verification?
     
     var anyCancellable: AnyCancellable? = nil
     
-    var id: String { identifier }
+    let id = UUID()
     
-    init(identifier: String, description: String? = nil, startDate: Date? = nil, endDate: Date? = nil, images: [Image]? = nil, verification: Verification? = nil) {
+    init(identifier: String, description: String = "", startDate: Date? = nil, endDate: Date? = nil, images: [Image]? = nil, verification: Verification? = nil) {
         self.identifier = identifier
         self.description = description
         self.time = DateRange(startDate: startDate, endDate: endDate)
@@ -31,7 +31,7 @@ class Page: Identifiable, ObservableObject {
         setUpAnyCancellable()
     }
     
-    private func setUpAnyCancellable() {
+    func setUpAnyCancellable() {
         anyCancellable = self.verification?.objectWillChange.sink(receiveValue: { (_) in
             self.objectWillChange.send()
         })

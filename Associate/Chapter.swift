@@ -12,9 +12,11 @@ import Combine
 
 // Supercategory containing pages (events)
 
-class Chapter: ObservableObject {
+class Chapter: ObservableObject, Identifiable {
     @Published var pages: [Page]
     @Published var identifier: String
+    
+    let id = UUID()
     
     var anyCancellable: [Int: AnyCancellable?] = [:]
     
@@ -25,7 +27,22 @@ class Chapter: ObservableObject {
         setUpAnyCancellable()
     }
     
-    private func setUpAnyCancellable() {
+    func addPage(page: Page) {
+        pages.append(page)
+        sortPagesAlphabetically()
+        setUpAnyCancellable()
+    }
+    
+    func removePage(page: Page) {
+        self.pages.removeAll { $0.id == page.id }
+        setUpAnyCancellable()
+    }
+    
+    func sortPagesAlphabetically() {
+        pages.sort { $0.identifier.lowercased() < $1.identifier.lowercased() }
+    }
+    
+    func setUpAnyCancellable() {
         for pg in 0 ..< pages.count {
             anyCancellable[pg] = self.pages[pg].objectWillChange.sink(receiveValue: { (_) in
                 self.objectWillChange.send()

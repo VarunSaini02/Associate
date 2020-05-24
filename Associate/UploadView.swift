@@ -18,8 +18,8 @@ struct UploadView: View {
                     .scaledToFit()
                     .cornerRadius(45)
                 
-                NavigationLink(destination: UploadDetailView().navigationBarTitle("Upload")){
-                    Text("Upload New Hours")
+                NavigationLink(destination: UploadDetailView()) {
+                    Text("Upload New Page")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
                         .foregroundColor(.white)

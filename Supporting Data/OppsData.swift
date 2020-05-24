@@ -8,20 +8,27 @@
 
 import SwiftUI
 
-struct OppsData: Identifiable, Hashable{
-    var id: Int
-    var location: String;
-    var spotsLeft: Int;
-    var name: String;
-    var description: String;
+struct OppsData: Identifiable {
+    let id = UUID()
+    var location: String
+    var spotsLeft: Int
+    var name: String
+    var description: String
+}
+
+class OppsDataContainer: Identifiable, ObservableObject {
+    let id = UUID()
+    @Published var opps: [OppsData]
     
+    init(opps: [OppsData]) {
+        self.opps = opps
+    }
 }
 
 #if DEBUG
-let testData = [
-    OppsData(id: 0, location: "Chanhassen, MN", spotsLeft: 15, name: "Feed My Starving Children", description: "This is test data where I will insert actual text once we are able to collect it"),
-    OppsData(id: 1, location: "Eden Prairie, MN", spotsLeft: 12, name: "EPHS", description: "This is test data where I will insert actual text once we are able to collect it"),
-    OppsData(id: 2, location: "Eden Prairie, MN", spotsLeft: 13, name: "Prop Shop", description: "This is test data where I will insert actual text once we are able to collect it")
-    
-]
+let testData = OppsDataContainer(opps: [
+    OppsData(location: "Chanhassen, MN", spotsLeft: 15, name: "Feed My Starving Children", description: "This is test data where I will insert actual text once we are able to collect it"),
+    OppsData(location: "Eden Prairie, MN", spotsLeft: 12, name: "EPHS", description: "This is test data where I will insert actual text once we are able to collect it"),
+    OppsData(location: "Eden Prairie, MN", spotsLeft: 13, name: "Prop Shop", description: "This is test data where I will insert actual text once we are able to collect it")
+])
 #endif

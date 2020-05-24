@@ -10,16 +10,21 @@ import SwiftUI
 
 struct OppsView: View {
     
-    var opps: [OppsData] = testData
-    @State var eventType = true
+    @ObservedObject var oppsContainer: OppsDataContainer = testData
+    @State private var eventType = true
     
     
     var body: some View {
         NavigationView {
             VStack {
                 Toggle(isOn: $eventType) {
-                    List(opps) { item in
-                        NavigationLink(destination: OppsDetailView(opps: self.opps)) {
+                    Text("Show Opportunities in My Area")
+                }
+                .padding()
+                
+                if eventType {
+                    List(oppsContainer.opps) { item in
+                        NavigationLink(destination: OppsDetailView(oppsContainer: self.oppsContainer)) {
                             Group {
                                 VStack(alignment: .leading) {
                                     Text(item.name)
@@ -34,9 +39,12 @@ struct OppsView: View {
                             }
                         }
                     }
+                } else {
+                    // Placeholder Spacer() until something is put here
+                    Spacer()
                 }
             }.navigationBarTitle(Text("Opportunities"))
-                .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
+                .navigationBarItems(trailing: NavigationLink(destination: SortView(oppsContainer: self.oppsContainer)) {
                     Text("Sort")
                 })
         }
@@ -45,7 +53,7 @@ struct OppsView: View {
 
 struct OppsView_Previews: PreviewProvider {
     static var previews: some View {
-        OppsView(opps: testData)
+        OppsView(oppsContainer: testData)
     }
 }
 
