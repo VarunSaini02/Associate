@@ -18,6 +18,11 @@ struct OppsView: View {
         NavigationView {
             VStack {
                 Toggle(isOn: $eventType) {
+                    Text("Show Opportunities in My Area")
+                }
+                .padding()
+                
+                if eventType {
                     List(opps) { item in
                         NavigationLink(destination: OppsDetailView(opps: self.opps)) {
                             Group {
@@ -34,6 +39,9 @@ struct OppsView: View {
                             }
                         }
                     }
+                } else {
+                    // Placeholder Spacer() until something is put here
+                    Spacer()
                 }
             }.navigationBarTitle(Text("Opportunities"))
                 .navigationBarItems(trailing: NavigationLink(destination: SortView()) {
