@@ -18,7 +18,7 @@ struct UploadView: View {
                     .scaledToFit()
                     .cornerRadius(45)
                 
-                NavigationLink(destination: UploadDetailView().navigationBarTitle("Upload")){
+                NavigationLink(destination: UploadDetailView()) {
                     Text("Upload New Hours")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()

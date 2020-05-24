@@ -13,7 +13,9 @@ struct UploadDetailView: View {
         VStack{
             Text("Here is where you would upload new events")
             
+            
         }
+        .navigationBarTitle("Upload", displayMode: .inline)
     }
 }
 
