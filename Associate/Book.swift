@@ -26,10 +26,12 @@ class Book: ObservableObject, Identifiable {
     func addChapter(chapter: Chapter) {
         chapters.append(chapter)
         sortChaptersAlphabetically()
+        setUpAnyCancellable()
     }
     
     func removeChapter(chapter: Chapter) {
         self.chapters.removeAll { $0.id == chapter.id }
+        setUpAnyCancellable()
     }
     
     func sortChaptersAlphabetically() {

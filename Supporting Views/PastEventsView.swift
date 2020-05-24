@@ -19,6 +19,7 @@ struct PastEventsView: View {
         VStack {
             Text(page.description != "" ? page.description : "No description provided!")
                 .padding()
+            
             Button(action: {
                 self.identifier += "a"
             }) {

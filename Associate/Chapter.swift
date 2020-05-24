@@ -30,10 +30,12 @@ class Chapter: ObservableObject, Identifiable {
     func addPage(page: Page) {
         pages.append(page)
         sortPagesAlphabetically()
+        setUpAnyCancellable()
     }
     
     func removePage(page: Page) {
         self.pages.removeAll { $0.id == page.id }
+        setUpAnyCancellable()
     }
     
     func sortPagesAlphabetically() {
