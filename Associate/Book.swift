@@ -10,8 +10,10 @@ import UIKit
 import SwiftUI
 import Combine
 
-class Book: ObservableObject {
+class Book: ObservableObject, Identifiable {
     @Published var chapters: [Chapter]
+    
+    let id = UUID()
     
     var anyCancellable: [Int: AnyCancellable?] = [:]
     
@@ -19,6 +21,19 @@ class Book: ObservableObject {
         self.chapters = chapters
         
         setUpAnyCancellable()
+    }
+    
+    func addChapter(chapter: Chapter) {
+        chapters.append(chapter)
+        sortChaptersAlphabetically()
+    }
+    
+    func removeChapter(chapter: Chapter) {
+        self.chapters.removeAll { $0.id == chapter.id }
+    }
+    
+    func sortChaptersAlphabetically() {
+        chapters.sort { $0.identifier.lowercased() < $1.identifier.lowercased() }
     }
     
     private func setUpAnyCancellable() {

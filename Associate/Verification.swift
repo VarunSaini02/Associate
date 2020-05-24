@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 import Combine
 
-class Verification: ObservableObject {
+class Verification: ObservableObject, Identifiable {
     enum VerificationType {
         case contact // contact information (name, email, phone, etc.) for someone who can verify (last resort)
         case images // pictures of volunteer slips, signatures, or other forms of proof
@@ -20,6 +20,8 @@ class Verification: ObservableObject {
     @Published var types = [VerificationType]()
     @Published var images: [Image]?
     @Published var contacts: [Contact]?
+    
+    let id = UUID()
     
     init (types: [VerificationType], images: [Image]? = nil, contacts: [Contact]? = nil) {
         self.contacts = contacts
