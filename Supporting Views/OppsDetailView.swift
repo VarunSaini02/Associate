@@ -10,7 +10,7 @@ import SwiftUI
 
 struct OppsDetailView: View {
     
-    var opps: [OppsData] = testData
+    var oppsContainer: OppsDataContainer
     
     var body: some View {
         NavigationView{
@@ -32,6 +32,6 @@ struct OppsDetailView: View {
 
 struct OppsDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OppsDetailView(opps: testData)
+        OppsDetailView(oppsContainer: testData)
     }
 }
