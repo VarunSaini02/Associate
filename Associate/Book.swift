@@ -38,7 +38,7 @@ class Book: ObservableObject, Identifiable {
         chapters.sort { $0.identifier.lowercased() < $1.identifier.lowercased() }
     }
     
-    private func setUpAnyCancellable() {
+    func setUpAnyCancellable() {
         for ch in 0 ..< chapters.count {
             anyCancellable[ch] = self.chapters[ch].objectWillChange.sink(receiveValue: { (_) in
                 self.objectWillChange.send()

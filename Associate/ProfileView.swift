@@ -41,6 +41,8 @@ struct ProfileView: View {
                     }
                     .onDelete { (indexSet) in
                         self.profile.book.chapters[self.whichChapter].pages.remove(atOffsets: indexSet)
+                        self.profile.book.chapters[self.whichChapter].sortPagesAlphabetically()
+                        self.profile.book.chapters[self.whichChapter].setUpAnyCancellable()
                     }
                 }
             }

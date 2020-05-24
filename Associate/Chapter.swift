@@ -42,7 +42,7 @@ class Chapter: ObservableObject, Identifiable {
         pages.sort { $0.identifier.lowercased() < $1.identifier.lowercased() }
     }
     
-    private func setUpAnyCancellable() {
+    func setUpAnyCancellable() {
         for pg in 0 ..< pages.count {
             anyCancellable[pg] = self.pages[pg].objectWillChange.sink(receiveValue: { (_) in
                 self.objectWillChange.send()

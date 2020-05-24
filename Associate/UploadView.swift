@@ -19,7 +19,7 @@ struct UploadView: View {
                     .cornerRadius(45)
                 
                 NavigationLink(destination: UploadDetailView()) {
-                    Text("Upload New Hours")
+                    Text("Upload New Page")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
                         .foregroundColor(.white)

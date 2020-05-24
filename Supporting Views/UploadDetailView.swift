@@ -38,6 +38,7 @@ struct UploadDetailView: View {
             })
             Section(header: Text("Description"), content: {
                 TextField("Enter description", text: $description)
+                    .multilineTextAlignment(.leading)
             })
             Section(header: Text("Starting and Ending Dates"), content: {
                 DatePicker("Start", selection: $startDate)

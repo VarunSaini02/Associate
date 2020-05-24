@@ -14,22 +14,27 @@ struct ProfileDetailView: View {
     
     var body: some View {
         VStack{
-            Image(uiImage: #imageLiteral(resourceName: "profilePic")) //insert picture user selects
+            Image("profilePic") //insert picture user selects
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(60)
-                .padding()
+                .padding(40)
             
-            Text(profile.name.fullName)
-            Text("Profile Functions")
-            
-            ForEach(0 ..< 5) { _ in
-                Text(self.profile.email)
-                    .multilineTextAlignment(.center)
+                    Section(header: Text("Personal information").fontWeight(.light)) {
+                HStack {
+                    Text("Full Name:")
+                        .fontWeight(.bold)
+                    Text(profile.name.fullName)
+                }
+                HStack {
+                    Text("Email:")
+                        .fontWeight(.bold)
+                    Text(profile.email)
+                }
             }
-            
+            .padding(.bottom, 20)
         }
-        .navigationBarTitle("Edit Profile")
+        .navigationBarTitle(Text("Edit Profile"), displayMode: .inline)
     }
 }
 

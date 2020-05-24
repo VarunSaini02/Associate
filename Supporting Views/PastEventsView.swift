@@ -17,6 +17,7 @@ struct PastEventsView: View {
     
     var body: some View {
         VStack {
+            TextField(identifier, text: $identifier)
             Text(page.description != "" ? page.description : "No description provided!")
                 .padding()
             
@@ -39,6 +40,7 @@ struct PastEventsView: View {
                 Text("Click to add an 'a' to chapter identifier")
             }
         }
+        .padding(.horizontal, 20)
         .onAppear() {
             print("appear")
             self.identifier = self.page.identifier
@@ -47,7 +49,7 @@ struct PastEventsView: View {
             print("disappear")
             self.page.identifier = self.identifier
         }
-        .navigationBarTitle(identifier)
+        .navigationBarTitle(Text(identifier), displayMode: .inline)
     }
 }
 

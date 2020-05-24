@@ -31,7 +31,7 @@ class Page: Identifiable, ObservableObject {
         setUpAnyCancellable()
     }
     
-    private func setUpAnyCancellable() {
+    func setUpAnyCancellable() {
         anyCancellable = self.verification?.objectWillChange.sink(receiveValue: { (_) in
             self.objectWillChange.send()
         })
