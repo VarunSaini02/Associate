@@ -9,14 +9,21 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Binding var isShowingLogin: Bool
+    
     var body: some View {
         NavigationView{
             VStack {
                 Text("Enter Username")
                 Text("Enter Password")
-                NavigationLink(destination:
-                ContentView()){
-                    Text("Login")
+                
+//                NavigationLink(destination:
+//                ContentView()){
+//                    Text("Login")
+//                }
+//
+                Button("Login") {
+                    self.isShowingLogin = false
                 }
             }
             
@@ -29,6 +36,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isShowingLogin: Binding.constant(true))
     }
 }
