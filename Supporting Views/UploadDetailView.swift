@@ -25,12 +25,11 @@ struct UploadDetailView: View {
         Form {
             Section(header: Text("Select a chapter to put this page in:"), footer: Text("Currently selected: \(profile.book.chapters[whichChapter].identifier)")) {
                 Picker(selection: $whichChapter, label: Text("Choose a Chapter:")) {
-                    ForEach(0 ..< profile.book.chapters.count) {
+                    ForEach(0 ..< self.profile.book.chapters.count, id: \.self) {
                         Text(self.profile.book.chapters[$0].identifier)
                     }
                 }
                 .labelsHidden()
-                .pickerStyle(WheelPickerStyle())
             }
             
             Section(header: Text("Name of Event (Required)"), content: {
@@ -66,7 +65,8 @@ struct UploadDetailView: View {
                         .fontWeight(.semibold)
                 }
             }
-            .padding(.vertical, 25)
+            .padding(.vertical, 10)
+            .centerInForm()
         }
         .navigationBarTitle("Upload", displayMode: .inline)
         .alert(isPresented: $datesInvalid) {

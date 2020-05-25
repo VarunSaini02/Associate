@@ -21,6 +21,7 @@ struct Authentication: View {
                     .foregroundColor(.white)
                     .fontWeight(.heavy)
                     .font(.system(size: 60))
+                    .multilineTextAlignment(.center)
                 
                 NavigationLink(destination: LoginView(authenticating: $authenticating)) {
                     ZStack {

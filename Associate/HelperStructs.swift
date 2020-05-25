@@ -10,6 +10,24 @@ import UIKit
 import SwiftUI
 import Combine
 
+// Center items in a form with Spacer()
+struct CenterInForm: ViewModifier {
+    func body(content: Content) -> some View {
+        HStack{
+            Spacer()
+            content
+            Spacer()
+        }
+    }
+}
+
+// Make CenterInForm a View-modifying function
+extension View {
+    func centerInForm() -> some View {
+        self.modifier(CenterInForm())
+    }
+}
+
 // GridStack struct — use for building UI
 struct GridStack<T: View>: View {
     let rows: Int

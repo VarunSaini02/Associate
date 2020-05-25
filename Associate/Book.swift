@@ -24,7 +24,7 @@ class Book: ObservableObject, Identifiable {
     
     func addChapter(chapter: Chapter) {
         chapters.append(chapter)
-        sortChaptersAlphabetically()
+        //sortChaptersAlphabetically()
         setUpAnyCancellable()
     }
     
