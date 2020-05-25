@@ -19,7 +19,6 @@ class Book: ObservableObject, Identifiable {
     
     init(chapters: [Chapter]) {
         self.chapters = chapters
-        
         setUpAnyCancellable()
     }
     

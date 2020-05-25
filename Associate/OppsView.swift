@@ -15,39 +15,38 @@ struct OppsView: View {
     
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Toggle(isOn: $eventType) {
-                    Text("Show Opportunities in My Area")
-                }
-                .padding()
-                
-                if eventType {
-                    List(oppsList.opps) { item in
-                        NavigationLink(destination: OppsDetailView(oppsContainer: self.oppsList)) {
-                            Group {
-                                VStack(alignment: .leading) {
-                                    Text(item.name)
-                                    HStack(alignment: .top) {
-                                        Text(item.location)
-                                            .font(.subheadline)
-                                        Spacer()
-                                        Text("12")
-                                            .font(.subheadline)
-                                    }
+        VStack {
+            Toggle(isOn: $eventType) {
+                Text("Show Opportunities in My Area")
+            }
+            .padding()
+            
+            if eventType {
+                List(oppsList.opps) { item in
+                    NavigationLink(destination: OppsDetailView(oppsContainer: self.oppsList)) {
+                        Group {
+                            VStack(alignment: .leading) {
+                                Text(item.name)
+                                HStack(alignment: .top) {
+                                    Text(item.location)
+                                        .font(.subheadline)
+                                    Spacer()
+                                    Text("12")
+                                        .font(.subheadline)
                                 }
                             }
                         }
                     }
-                } else {
-                    // Placeholder Spacer() until something is put here
-                    Spacer()
                 }
-            }.navigationBarTitle(Text("Opportunities"))
-                .navigationBarItems(trailing: NavigationLink(destination: SortView(oppsList: self.oppsList)) {
-                    Text("Sort")
-                })
+            } else {
+                // Placeholder Spacer() until something is put here
+                Spacer()
+            }
         }
+        .navigationBarTitle("Opportunities", displayMode: .inline)
+        .navigationBarItems(trailing: NavigationLink(destination: SortView(oppsList: self.oppsList)) {
+            Text("Sort")
+        })
     }
 }
 

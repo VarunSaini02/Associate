@@ -23,7 +23,6 @@ class Chapter: ObservableObject, Identifiable {
     init(pages: [Page], identifier: String) {
         self.pages = pages
         self.identifier = identifier
-        
         setUpAnyCancellable()
     }
     
