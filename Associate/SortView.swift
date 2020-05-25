@@ -11,79 +11,79 @@ import SwiftUI
 struct SortView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var oppsContainer: OppsDataContainer
+    @ObservedObject var oppsList: OpportunityList
     
-    @State var oppsArray: [OppsData] = [OppsData]()
+    @State var stateOppsArray: [Opportunity] = [Opportunity]()
     
     
     var body: some View {
         VStack(spacing: 20) {
             Button("Sort Alphabetically (Name)") {
-                self.oppsArray = self.oppsArray.sorted {
+                self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.name.lowercased() < $1.name.lowercased()
                 }
                 self.presentationMode.wrappedValue.dismiss()
             }
             
             Button("Sort by Shortest to Longest Name") {
-                self.oppsArray = self.oppsArray.sorted {
+                self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.name.count < $1.name.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
             }
             
             Button("Sort by Longest to Shortest Name") {
-                self.oppsArray = self.oppsArray.sorted {
+                self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.name.count > $1.name.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
             }
             
             Button("Sort Alphabetically (Location)") {
-                self.oppsArray = self.oppsArray.sorted {
+                self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.location.lowercased() < $1.location.lowercased()
                 }
                 self.presentationMode.wrappedValue.dismiss()
             }
             
             Button("Sort Alphabetically (Description)") {
-                self.oppsArray = self.oppsArray.sorted {
+                self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.description.lowercased() < $1.description.lowercased()
                 }
                 self.presentationMode.wrappedValue.dismiss()
             }
             
             Button("Sort by Shortest to Longest Description") {
-                self.oppsArray = self.oppsArray.sorted {
+                self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.description.count < $1.description.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
             }
             
             Button("Sort by Longest to Shortest Description") {
-                self.oppsArray = self.oppsArray.sorted {
+                self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.description.count > $1.description.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
             }
             
             Button("Sort Randomly") {
-                self.oppsArray = self.oppsArray.shuffled()
+                self.stateOppsArray = self.stateOppsArray.shuffled()
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
         .navigationBarTitle("Refine Search")
         .onAppear() {
-            self.oppsArray = self.oppsContainer.opps
+            self.stateOppsArray = self.oppsList.opps
         }
         .onDisappear() {
-            self.oppsContainer.opps = self.oppsArray
+            self.oppsList.opps = self.stateOppsArray
         }
     }
 }
 
 struct SortView_Previews: PreviewProvider {
     static var previews: some View {
-        SortView(oppsContainer: testData)
+        SortView(oppsList: testOpportunityList)
     }
 }
