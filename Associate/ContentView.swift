@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var profile: Profile 
+    @EnvironmentObject var profile: Profile
+    @State var isShowingLogin = true
     
     var body: some View {
         TabView {
@@ -41,6 +42,9 @@ struct ContentView: View {
             }
             .tag(2)
         }
+        .sheet(isPresented: $isShowingLogin, content: {
+            LoginView(isShowingLogin: self.$isShowingLogin)
+        })
     }
 }
 

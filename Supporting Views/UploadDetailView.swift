@@ -13,8 +13,8 @@ struct UploadDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var profile: Profile
     
-    @State private var identifier: String = "Enter name"
-    @State private var description: String = "Enter description"
+    @State private var identifier: String = ""
+    @State private var description: String = ""
     @State private var startDate: Date = Date()
     @State private var endDate: Date = Date()
     
