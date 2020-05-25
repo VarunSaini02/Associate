@@ -11,42 +11,20 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var profile: Profile
-    @State private var defaultTab = 2
-    @State private var isShowingLogin = true
+    
+    @State private var authenticating: Bool = true
     
     var body: some View {
-        TabView(selection: $defaultTab) {
-            OppsView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "globe")
-                        Text("Opportunities")
-                    }
+        ZStack {
+            if authenticating {
+                NavigationView {
+                    Authentication(authenticating: $authenticating)
+                }
+            } else {
+                MainTabView()
             }
-            .tag(1)
-            
-            UploadView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "arrow.up.square.fill")
-                        Text("Upload")
-                    }
-            }
-            .tag(2)
-            
-            ProfileView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "person.fill")
-                        Text("Profile")
-                    }
-            }
-            .tag(3)
         }
-        .blur(radius: isShowingLogin ? 50 : 0)
-        .sheet(isPresented: $isShowingLogin, content: {
-            LoginView(isShowingLogin: self.$isShowingLogin)
-        })
+        
     }
 }
 
