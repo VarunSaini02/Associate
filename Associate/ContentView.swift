@@ -11,10 +11,11 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var profile: Profile
-    @State var isShowingLogin = true
+    @State private var defaultTab = 2
+    @State private var isShowingLogin = true
     
     var body: some View {
-        TabView {
+        TabView(selection: $defaultTab) {
             OppsView()
                 .tabItem {
                     VStack {
@@ -31,7 +32,7 @@ struct ContentView: View {
                         Text("Upload")
                     }
             }
-            .tag(0)
+            .tag(2)
             
             ProfileView()
                 .tabItem {
@@ -40,8 +41,9 @@ struct ContentView: View {
                         Text("Profile")
                     }
             }
-            .tag(2)
+            .tag(3)
         }
+        .blur(radius: isShowingLogin ? 50 : 0)
         .sheet(isPresented: $isShowingLogin, content: {
             LoginView(isShowingLogin: self.$isShowingLogin)
         })
