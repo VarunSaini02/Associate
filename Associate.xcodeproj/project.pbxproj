@@ -37,6 +37,7 @@
 		EF5E478D247BC80A00B7E179 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E478C247BC80A00B7E179 /* LoginView.swift */; };
 		EF8BECB2246478DE00BE0802 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BECB1246478DE00BE0802 /* Verification.swift */; };
 		EFAF7AFA2479C03700742872 /* HelperStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF7AF92479C03700742872 /* HelperStructs.swift */; };
+		EFE85613247D78D70085B09C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE85612247D78D70085B09C /* CloudKit.framework */; };
 		EFEE1BD0246F09340057D1E2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEE1BCF246F09340057D1E2 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,8 @@
 		EF5E478C247BC80A00B7E179 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EF8BECB1246478DE00BE0802 /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 		EFAF7AF92479C03700742872 /* HelperStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperStructs.swift; sourceTree = "<group>"; };
+		EFE85610247D78CE0085B09C /* Associate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Associate.entitlements; sourceTree = "<group>"; };
+		EFE85612247D78D70085B09C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EFEE1BCF246F09340057D1E2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE85613247D78D70085B09C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +157,7 @@
 				EF5221BF2458912E00361595 /* AssociateTests */,
 				EF5221CA2458912E00361595 /* AssociateUITests */,
 				EF5221A42458911A00361595 /* Products */,
+				EFE85611247D78D70085B09C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +174,7 @@
 		EF5221A52458911A00361595 /* Associate */ = {
 			isa = PBXGroup;
 			children = (
+				EFE85610247D78CE0085B09C /* Associate.entitlements */,
 				EF5221A62458911A00361595 /* AppDelegate.swift */,
 				EF5221A82458911A00361595 /* SceneDelegate.swift */,
 				EFAF7AF92479C03700742872 /* HelperStructs.swift */,
@@ -219,6 +225,14 @@
 				EF5221CD2458912E00361595 /* Info.plist */,
 			);
 			path = AssociateUITests;
+			sourceTree = "<group>";
+		};
+		EFE85611247D78D70085B09C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFE85612247D78D70085B09C /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Associate/Associate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Associate/Preview Content\"";
 				DEVELOPMENT_TEAM = 883DK65VTV;
@@ -562,6 +577,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Associate/Associate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Associate/Preview Content\"";
 				DEVELOPMENT_TEAM = 883DK65VTV;
