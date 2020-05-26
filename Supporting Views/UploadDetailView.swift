@@ -39,6 +39,11 @@ struct UploadDetailView: View {
                 TextField("Enter description", text: $description)
                     .multilineTextAlignment(.leading)
             })
+            Section(header: Text("Add an Image"), content: {
+                NavigationLink(destination: UploadImageView()) {
+                    Text("Add an Image")
+                }
+            })
             Section(header: Text("Starting and Ending Dates"), content: {
                 DatePicker("Start", selection: $startDate)
                     .labelsHidden()
