@@ -26,8 +26,12 @@ struct UploadView: View {
                     .cornerRadius(40)
                     .font(.title)
             }.padding()
-        }
-        .navigationBarTitle("Upload", displayMode: .inline)
+            
+            
+            
+        }.navigationBarTitle("Upload", displayMode: .inline)
+        
+        
     }
 }
 

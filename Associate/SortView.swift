@@ -23,54 +23,54 @@ struct SortView: View {
                     $0.name.lowercased() < $1.name.lowercased()
                 }
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
             
-            Button("Sort by Shortest to Longest Name") {
+            Button("Sort Shortest to Longest (Name)") {
                 self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.name.count < $1.name.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
             
-            Button("Sort by Longest to Shortest Name") {
+            Button("Sort Longest to Shortest (Name)") {
                 self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.name.count > $1.name.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
             
             Button("Sort Alphabetically (Location)") {
                 self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.location.lowercased() < $1.location.lowercased()
                 }
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
             
             Button("Sort Alphabetically (Description)") {
                 self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.description.lowercased() < $1.description.lowercased()
                 }
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
             
-            Button("Sort by Shortest to Longest Description") {
+            Button("Sort Shortest to Longest (Description)") {
                 self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.description.count < $1.description.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
             
-            Button("Sort by Longest to Shortest Description") {
+            Button("Sort Longest to Shortest (Description)") {
                 self.stateOppsArray = self.stateOppsArray.sorted {
                     $0.description.count > $1.description.count
                 }
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
             
             Button("Sort Randomly") {
                 self.stateOppsArray = self.stateOppsArray.shuffled()
                 self.presentationMode.wrappedValue.dismiss()
-            }
+            }.foregroundColor(.black)
         }
         .navigationBarTitle("Refine Search")
         .onAppear() {
