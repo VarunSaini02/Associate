@@ -22,7 +22,7 @@ struct UploadView: View {
                     .frame(minWidth: 0, maxWidth: 300)
                     .padding()
                     .foregroundColor(.white)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.black]), startPoint: .leading, endPoint: .trailing))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.black]), startPoint: .leading, endPoint: .trailing))
                     .cornerRadius(40)
                     .font(.title)
             }.padding()

@@ -16,6 +16,9 @@ struct LoginView: View {
     @Binding var authenticating: Bool
     
     var body: some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .top, endPoint: .bottom)
+                
         VStack(spacing: 60) {
             TextField("Enter username", text: $username)
                 .padding(.horizontal, 40)
@@ -29,7 +32,7 @@ struct LoginView: View {
                 }
             }) {
                 ZStack {
-                    LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .leading, endPoint: .trailing)
                         .frame(width: 150, height: 60)
                         .clipShape(Capsule())
                     Text("Log In")
@@ -38,7 +41,9 @@ struct LoginView: View {
                 }
             }
         }
+    }
         .navigationBarTitle("Log In", displayMode: .inline)
+        .background(Color.offGray[0])
     }
 }
 
