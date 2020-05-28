@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6E4A5AE12469038D00270583 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5AE02469038D00270583 /* SortView.swift */; };
 		6E4A5AE3246903B800270583 /* SortData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5AE2246903B800270583 /* SortData.swift */; };
+		6E6CEE86247FBBA000F1EBB2 /* OppsSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6CEE85247FBB9F00F1EBB2 /* OppsSignUpView.swift */; };
 		6EB513C62458EA57004D608B /* OppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB513C52458EA57004D608B /* OppsView.swift */; };
 		6EB513C82458EA70004D608B /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB513C72458EA70004D608B /* UploadView.swift */; };
 		6EB513CA2458EA8B004D608B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB513C92458EA8B004D608B /* ProfileView.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		6E4A5AE02469038D00270583 /* SortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
 		6E4A5AE2246903B800270583 /* SortData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortData.swift; sourceTree = "<group>"; };
+		6E6CEE85247FBB9F00F1EBB2 /* OppsSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppsSignUpView.swift; sourceTree = "<group>"; };
 		6EB513C52458EA57004D608B /* OppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppsView.swift; sourceTree = "<group>"; };
 		6EB513C72458EA70004D608B /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		6EB513C92458EA8B004D608B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				6EFDAE06247433A5002906E7 /* PastEventsView.swift */,
 				EF5E4786247BAD8D00B7E179 /* SignUpView.swift */,
 				EF5E478C247BC80A00B7E179 /* LoginView.swift */,
+				6E6CEE85247FBB9F00F1EBB2 /* OppsSignUpView.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				6EE12513245B109300966C4A /* ProfileDetailView.swift in Sources */,
 				EF5221A72458911A00361595 /* AppDelegate.swift in Sources */,
 				EFEE1BD0246F09340057D1E2 /* Profile.swift in Sources */,
+				6E6CEE86247FBBA000F1EBB2 /* OppsSignUpView.swift in Sources */,
 				EF5E4789247BB50700B7E179 /* MainTabView.swift in Sources */,
 				EF5221DC245A92E100361595 /* Chapter.swift in Sources */,
 				EF5221DE245A930500361595 /* Page.swift in Sources */,

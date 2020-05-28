@@ -23,8 +23,13 @@ struct LoginView: View {
             self.email = $0.lowercased()
         })
         
-        return VStack(spacing: 60) {
-            TextField("Enter email", text: emailLowercased)
+
+        return ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .top, endPoint: .bottom)
+                
+        VStack(spacing: 60) {
+            TextField("Enter username", text: $username)
+
                 .padding(.horizontal, 40)
             
             SecureField("Enter password", text: $password)
@@ -34,7 +39,7 @@ struct LoginView: View {
                 self.authenticateLogin()
             }) {
                 ZStack {
-                    LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .leading, endPoint: .trailing)
                         .frame(width: 150, height: 60)
                         .clipShape(Capsule())
                     Text("Log In")
@@ -43,7 +48,9 @@ struct LoginView: View {
                 }
             }
         }
+    }
         .navigationBarTitle("Log In", displayMode: .inline)
+        .background(Color.offGray[0])
         .alert(isPresented: $isShowingInvalid) {
             Alert(title: Text("Invalid email or password"), message: nil, dismissButton: .default(Text("Okay")))
         }
