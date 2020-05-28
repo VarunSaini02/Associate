@@ -28,7 +28,7 @@ struct LoginView: View {
             LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .top, endPoint: .bottom)
                 
         VStack(spacing: 60) {
-            TextField("Enter username", text: $username)
+            TextField("Enter username", text: emailLowercased)
 
                 .padding(.horizontal, 40)
             
