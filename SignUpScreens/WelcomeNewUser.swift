@@ -61,7 +61,7 @@ struct WelcomeNewUser: View {
             }
             .navigationBarTitle("Welcome \(firstName)!", displayMode: .inline)
             .alert(isPresented: $invalidFields) {
-                Alert(title: Text("Not all fields have been entered"), dismissButton: .default(Text("Okay")))
+                Alert(title: Text("Not all fields have been entered."), dismissButton: .default(Text("Okay")))
             }
         }
         .padding(.top, 10)

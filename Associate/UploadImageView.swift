@@ -42,6 +42,7 @@ struct UploadImageView: View {
                 
             }
         }
+        .addLightGrayGradientBackground()
         .padding([.horizontal, .bottom])
         .navigationBarTitle("Add a Picture")
         .sheet(isPresented: $showingImagePicker,

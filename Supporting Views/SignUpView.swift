@@ -21,10 +21,10 @@ struct SignUpView: View {
     @State private var passwordCheck = ""
     @State private var passwordMsg = ""
     
-    @State private var repeatedEmail = false
-    @State private var passwordsUnmatching = false
     @State private var proceedToNextScreen = false
-    @State private var invalidFields = false
+    
+    @State private var showAlert = false
+    @State private var activeAlert: ActiveAlert = .invalidFields
     
     var body: some View {
         let emailLowercased = Binding<String>(get: {
@@ -47,63 +47,68 @@ struct SignUpView: View {
             self.updatePasswordFooter()
         })
         
-        return VStack {
-           Form {
-                Section(header: Text("Name")) {
-                    TextField("Enter first name", text: $firstName)
-                    TextField("Enter last name", text: $lastName)
-                }
-                
-                Section(header: Text("Email")) {
-                    TextField("Enter email", text: emailLowercased)
-                    
-                }
-                
-                Section(header: Text("Password"), footer: Text(passwordMsg)) {
-                    SecureField("Create a password", text: passwordChecker1)
-                    SecureField("Re-enter password", text: passwordChecker2)
-                }
-            }
-            
-            Button(action: {
-                self.validate()
-                self.authenticateInformation()
-            }) {
-                ZStack {
-                    LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
-                        .frame(width: 150, height: 60)
-                        .clipShape(Capsule())
-                    Text("Sign Up")
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
-                }
-            }
-            
+        return ZStack {
             NavigationLink(destination: WelcomeNewUser(authenticating: $authenticating, firstName: firstName, lastName: lastName, email: email, password: password), isActive: $proceedToNextScreen) {
                 Text("Go to chapter and page creation.")
             }
             .hidden()
+            
+            VStack {
+                Form {
+                    Section(header: Text("Name")) {
+                        TextField("Enter first name", text: $firstName)
+                        TextField("Enter last name", text: $lastName)
+                    }
+                    
+                    Section(header: Text("Email")) {
+                        TextField("Enter email", text: emailLowercased)
+                        
+                    }
+                    
+                    Section(header: Text("Password"), footer: Text(passwordMsg)) {
+                        SecureField("Create a password", text: passwordChecker1)
+                        SecureField("Re-enter password", text: passwordChecker2)
+                    }
+                }
+                
+                Button(action: {
+                    self.validate()
+                }) {
+                    ZStack {
+                        LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .leading, endPoint: .trailing)
+                            .frame(width: 150, height: 60)
+                            .clipShape(Capsule())
+                        Text("Sign Up")
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                    }
+                }
+                .padding(.top)
+            }
         }
         .navigationBarTitle(Text("Sign Up"), displayMode: .inline)
-        .alert(isPresented: $repeatedEmail) {
-            Alert(title: Text("Email already in use"), message: nil, dismissButton: .default(Text("Okay")))
-        }
-        .alert(isPresented: $passwordsUnmatching) {
-            Alert(title: Text("Passwords do not match"), message: nil, dismissButton: .default(Text("Okay")))
-        }
-        .alert(isPresented: $invalidFields) {
-            Alert(title: Text("Not all fields have been entered"), dismissButton: .default(Text("Okay")))
+        .alert(isPresented: $showAlert) {
+            switch self.activeAlert {
+            case .repeatEmail:
+                return Alert(title: Text("Email already in use."), dismissButton: .default(Text("Okay")))
+            case .unmatchedPasswords:
+                return Alert(title: Text("Passwords do not match."), dismissButton: .default(Text("Okay")))
+            case .invalidFields:
+                return Alert(title: Text("Please enter all fields."), dismissButton: .default(Text("Okay")))
+            }
         }
     }
     
     func authenticateInformation() {
         guard UserDefaults.standard.string(forKey: email) == nil else {
-            repeatedEmail = true
+            activeAlert = .repeatEmail
+            showAlert = true
             return
         }
         
         guard passwordMsg == "Passwords match!" else {
-            passwordsUnmatching = true
+            activeAlert = .unmatchedPasswords
+            showAlert = true
             return
         }
         
@@ -122,10 +127,18 @@ struct SignUpView: View {
     
     func validate() {
         if firstName == "" || lastName == "" || email == "" || password == "" || passwordCheck == "" {
-            invalidFields = true
-        } else {
-            invalidFields = false
+            activeAlert = .invalidFields
+            showAlert = true
+            return
         }
+        
+        authenticateInformation()
+    }
+    
+    enum ActiveAlert {
+        case repeatEmail
+        case unmatchedPasswords
+        case invalidFields
     }
 }
 

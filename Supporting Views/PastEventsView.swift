@@ -15,32 +15,36 @@ struct PastEventsView: View {
     
     @State private var identifier: String = ""
     
+    private var CP: CPIndex {
+        self.profile.cpIndexOf(page: self.page)
+    }
+    
     var body: some View {
-        VStack {
-            TextField(identifier, text: $identifier)
-            Text(page.description != "" ? page.description : "No description provided!")
-                .padding()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        
+        return ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .bottom, endPoint: .top)
+                .edgesIgnoringSafeArea(.all)
             
-            Button(action: {
-                self.identifier += "a"
-            }) {
-                Text("Click to add an 'a' to page identifier")
+            VStack {
+                Text("Chapter").font(.system(size: 36))
+                Text("\(self.profile.book.chapters[CP.ch].identifier)")
+                
+                Text("Description").font(.system(size: 36)).padding(.top, 30)
+                Text(page.description != "" ? page.description : "No description provided!")
+                
+                Text("Time").font(.system(size: 36)).padding(.top, 30)
+                Text(page.time?.startDate != nil ? formatter.string(from: page.time!.startDate!) : "No start date provided!")
+                Text("to")
+                Text(page.time?.endDate != nil ? formatter.string(from: page.time!.endDate!) : "No end date provided!")
             }
-            
-            Button(action: {
-                self.page.description += "a"
-            }) {
-                Text("Click to add an 'a' to page description")
-            }
-            
-            Button(action: {
-                let CP = self.profile.cpIndexOf(page: self.page)
-                self.profile.book.chapters[CP.ch].identifier += "a"
-            }) {
-                Text("Click to add an 'a' to chapter identifier")
-            }
+            .font(.system(size: 24))
+            .padding(.top, 10)
+            .padding(.horizontal, 40)
+            .foregroundColor(Color(red: 80/255, green: 80/255, blue: 80/255))
         }
-        .padding(.horizontal, 20)
         .onAppear() {
             print("appear")
             self.identifier = self.page.identifier

@@ -23,36 +23,40 @@ struct LoginView: View {
             self.email = $0.lowercased()
         })
         
-
+        
         return ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 60) {
+                TextField("Enter email", text: emailLowercased)
+                    .padding(.horizontal, 40)
+                    .font(.system(size: 24))
+                    .foregroundColor(Color(red: 80/255, green: 80/255, blue: 80/255))
                 
-        VStack(spacing: 60) {
-            TextField("Enter username", text: emailLowercased)
-
-                .padding(.horizontal, 40)
-            
-            SecureField("Enter password", text: $password)
-                .padding(.horizontal, 40)
-            
-            Button(action: {
-                self.authenticateLogin()
-            }) {
-                ZStack {
-                    LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .leading, endPoint: .trailing)
-                        .frame(width: 150, height: 60)
-                        .clipShape(Capsule())
-                    Text("Log In")
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                SecureField("Enter password", text: $password)
+                    .padding(.horizontal, 40)
+                    .font(.system(size: 24))
+                    .foregroundColor(Color(red: 80/255, green: 80/255, blue: 80/255))
+                
+                Button(action: {
+                    self.authenticateLogin()
+                }) {
+                    ZStack {
+                        LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .leading, endPoint: .trailing)
+                            .frame(width: 150, height: 60)
+                            .clipShape(Capsule())
+                        Text("Log In")
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                    }
                 }
             }
         }
-    }
         .navigationBarTitle("Log In", displayMode: .inline)
         .background(Color.offGray[0])
         .alert(isPresented: $isShowingInvalid) {
-            Alert(title: Text("Invalid email or password"), message: nil, dismissButton: .default(Text("Okay")))
+            Alert(title: Text("Invalid email or password."), message: nil, dismissButton: .default(Text("Okay")))
         }
     }
     
@@ -66,7 +70,7 @@ struct LoginView: View {
             isShowingInvalid = true
             return
         }
-
+        
         withAnimation {
             self.authenticating.toggle()
         }

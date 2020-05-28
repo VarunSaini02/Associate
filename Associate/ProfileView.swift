@@ -23,7 +23,7 @@ struct ProfileView: View {
             Text(profile.name.fullName)
             
             NavigationLink(destination: ProfileDetailView()) {
-                Text("Edit Profile")
+                Text("View Profile")
             }.padding()
             
             Picker(selection: $whichChapter, label: Text("Choose a Chapter:")) {

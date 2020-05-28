@@ -16,12 +16,13 @@ struct Authentication: View {
             LinearGradient(gradient: Gradient(colors: [Color.offGray[0], .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack(spacing: 60) {
+            VStack(spacing: 20) {
                 Text("Welcome to the Library.")
                     .foregroundColor(.white)
                     .fontWeight(.heavy)
                     .font(.system(size: 60))
                     .multilineTextAlignment(.center)
+                    .padding(.bottom, 40)
                 
                 NavigationLink(destination: LoginView(authenticating: $authenticating)){
                     ZStack {
