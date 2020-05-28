@@ -13,7 +13,7 @@ struct Authentication: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color.offGray[0], .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 60) {
@@ -23,9 +23,9 @@ struct Authentication: View {
                     .font(.system(size: 60))
                     .multilineTextAlignment(.center)
                 
-                NavigationLink(destination: LoginView(authenticating: $authenticating)) {
+                NavigationLink(destination: LoginView(authenticating: $authenticating)){
                     ZStack {
-                        LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[0]]), startPoint: .leading, endPoint: .trailing)
                             .frame(width: 150, height: 60)
                             .clipShape(Capsule())
                         Text("Log In")
@@ -36,7 +36,7 @@ struct Authentication: View {
                 
                 NavigationLink(destination: SignUpView(authenticating: $authenticating)) {
                     ZStack {
-                        LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[0]]), startPoint: .leading, endPoint: .trailing)
                             .frame(width: 150, height: 60)
                             .clipShape(Capsule())
                         Text("Sign Up")
