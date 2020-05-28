@@ -58,6 +58,4 @@ class Verification: ObservableObject, Identifiable {
             }
         }
     }
-    
-    
 }

@@ -15,7 +15,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack {
-            Image("profilePic")
+            profile.profilePic
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(45)
@@ -45,6 +45,7 @@ struct ProfileView: View {
                 }
             }
         }
+        .padding(.top, 20)
         .navigationBarTitle("Profile", displayMode: .inline)
     }
 }

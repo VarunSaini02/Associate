@@ -14,45 +14,60 @@ struct SignUpView: View {
     
     @Binding var authenticating: Bool
     
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var email: String = ""
-    @State private var blankBook: Bool = false
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var passwordCheck = ""
+    @State private var passwordMsg = ""
+    
+    @State private var repeatedEmail = false
+    @State private var passwordsUnmatching = false
+    @State private var proceedToNextScreen = false
+    @State private var invalidFields = false
     
     var body: some View {
-        VStack {
-            Text("THIS PAGE IS VERY BUGGY RIGHT NOW") // To be removed
-            
-            Form {
+        let emailLowercased = Binding<String>(get: {
+            self.email
+        }, set: {
+            self.email = $0.lowercased()
+        })
+        
+        let passwordChecker1 = Binding<String>(get: {
+            self.password
+        }, set: {
+            self.password = $0
+            self.updatePasswordFooter()
+        })
+        
+        let passwordChecker2 = Binding<String>(get: {
+            self.passwordCheck
+        }, set: {
+            self.passwordCheck = $0
+            self.updatePasswordFooter()
+        })
+        
+        return VStack {
+           Form {
                 Section(header: Text("Name")) {
-                    HStack {
-                        TextField("Enter first name", text: $firstName)
-                        TextField("Enter last name", text: $lastName)
-                    }
+                    TextField("Enter first name", text: $firstName)
+                    TextField("Enter last name", text: $lastName)
                 }
                 
                 Section(header: Text("Email")) {
-                    TextField("Enter email", text: $email)
+                    TextField("Enter email", text: emailLowercased)
                     
                 }
                 
-                Section(header: Text("Book")) {
-                    Toggle(isOn: $blankBook) { Text("Start with a fresh book? As of now, doing this will cause crazy errors.")
-                    }
+                Section(header: Text("Password"), footer: Text(passwordMsg)) {
+                    SecureField("Create a password", text: passwordChecker1)
+                    SecureField("Re-enter password", text: passwordChecker2)
                 }
             }
             
             Button(action: {
-                withAnimation {
-                    self.authenticating.toggle()
-                    
-                    self.profile.name = Name(self.firstName, self.lastName)
-                    self.profile.email = self.email
-                    
-                    if self.blankBook {
-                        self.profile.book = Book(chapters: [Chapter]())
-                    }
-                }
+                self.validate()
+                self.authenticateInformation()
             }) {
                 ZStack {
                     LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
@@ -63,8 +78,54 @@ struct SignUpView: View {
                         .fontWeight(.semibold)
                 }
             }
+            
+            NavigationLink(destination: WelcomeNewUser(authenticating: $authenticating, firstName: firstName, lastName: lastName, email: email, password: password), isActive: $proceedToNextScreen) {
+                Text("Go to chapter and page creation.")
+            }
+            .hidden()
         }
         .navigationBarTitle(Text("Sign Up"), displayMode: .inline)
+        .alert(isPresented: $repeatedEmail) {
+            Alert(title: Text("Email already in use"), message: nil, dismissButton: .default(Text("Okay")))
+        }
+        .alert(isPresented: $passwordsUnmatching) {
+            Alert(title: Text("Passwords do not match"), message: nil, dismissButton: .default(Text("Okay")))
+        }
+        .alert(isPresented: $invalidFields) {
+            Alert(title: Text("Not all fields have been entered"), dismissButton: .default(Text("Okay")))
+        }
+    }
+    
+    func authenticateInformation() {
+        guard UserDefaults.standard.string(forKey: email) == nil else {
+            repeatedEmail = true
+            return
+        }
+        
+        guard passwordMsg == "Passwords match!" else {
+            passwordsUnmatching = true
+            return
+        }
+        
+        proceedToNextScreen.toggle()
+    }
+    
+    func updatePasswordFooter() {
+        if passwordCheck == "" && password == "" {
+            passwordMsg = ""
+        } else if passwordCheck == password {
+            passwordMsg = "Passwords match!"
+        } else {
+            passwordMsg = "Passwords do not match!"
+        }
+    }
+    
+    func validate() {
+        if firstName == "" || lastName == "" || email == "" || password == "" || passwordCheck == "" {
+            invalidFields = true
+        } else {
+            invalidFields = false
+        }
     }
 }
 

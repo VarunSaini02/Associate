@@ -75,7 +75,7 @@ struct UploadDetailView: View {
         }
         .navigationBarTitle("Upload", displayMode: .inline)
         .alert(isPresented: $datesInvalid) {
-            return Alert(title: Text("Error"), message: Text("Please ensure the specified start date occurs before the specified end date."), dismissButton: .default(Text("Return")))
+            return Alert(title: Text("Error"), message: Text("Please ensure the specified start date occurs before the specified end date."), dismissButton: .default(Text("Okay")))
         }
     }
     
