@@ -10,6 +10,23 @@ import UIKit
 import SwiftUI
 import Combine
 
+extension Color {
+    static let offGray: [Color] = [
+        Color(red: 110 / 255, green: 110 / 255, blue: 110 / 255),
+        Color(red: 120 / 255, green: 120 / 255, blue: 120 / 255),
+        Color(red: 130 / 255, green: 130 / 255, blue: 130 / 255),
+        Color(red: 140 / 255, green: 140 / 255, blue: 140 / 255),
+        Color(red: 150 / 255, green: 150 / 255, blue: 150 / 255),
+        Color(red: 160 / 255, green: 160 / 255, blue: 160 / 255),
+        Color(red: 170 / 255, green: 170 / 255, blue: 170 / 255),
+        Color(red: 180 / 255, green: 180 / 255, blue: 180 / 255),
+        Color(red: 190 / 255, green: 190 / 255, blue: 190 / 255),
+        Color(red: 200 / 255, green: 200 / 255, blue: 200 / 255),
+        Color(red: 210 / 255, green: 210 / 255, blue: 210 / 255),
+        Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)
+    ]
+}
+
 // Center items in a form with Spacer()
 struct CenterInForm: ViewModifier {
     func body(content: Content) -> some View {
