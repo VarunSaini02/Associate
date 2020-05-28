@@ -48,7 +48,7 @@ struct WelcomeNewUser: View {
                     }
                 }) {
                     ZStack {
-                        LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .leading, endPoint: .trailing)
                             .frame(width: 150, height: 60)
                             .clipShape(Capsule())
                         Text("Proceed")
