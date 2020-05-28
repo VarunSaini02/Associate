@@ -14,6 +14,7 @@ class Profile: ObservableObject {
     @Published var name: Name
     @Published var email: String
     @Published var book: Book
+    @Published var profilePic: Image = Image("defaultPFP")
     
     var anyCancellable: AnyCancellable? = nil
     

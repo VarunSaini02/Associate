@@ -19,10 +19,12 @@ struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var passwordCheck = ""
+    @State private var passwordMsg = ""
     
     @State private var repeatedEmail = false
     @State private var passwordsUnmatching = false
-    @State private var passwordMsg = ""
+    @State private var proceedToNextScreen = false
+    @State private var invalidFields = false
     
     var body: some View {
         let emailLowercased = Binding<String>(get: {
@@ -46,7 +48,7 @@ struct SignUpView: View {
         })
         
         return VStack {
-            Form {
+           Form {
                 Section(header: Text("Name")) {
                     TextField("Enter first name", text: $firstName)
                     TextField("Enter last name", text: $lastName)
@@ -64,6 +66,7 @@ struct SignUpView: View {
             }
             
             Button(action: {
+                self.validate()
                 self.authenticateInformation()
             }) {
                 ZStack {
@@ -75,6 +78,11 @@ struct SignUpView: View {
                         .fontWeight(.semibold)
                 }
             }
+            
+            NavigationLink(destination: WelcomeNewUser(authenticating: $authenticating, firstName: firstName, lastName: lastName, email: email, password: password), isActive: $proceedToNextScreen) {
+                Text("Go to chapter and page creation.")
+            }
+            .hidden()
         }
         .navigationBarTitle(Text("Sign Up"), displayMode: .inline)
         .alert(isPresented: $repeatedEmail) {
@@ -82,6 +90,9 @@ struct SignUpView: View {
         }
         .alert(isPresented: $passwordsUnmatching) {
             Alert(title: Text("Passwords do not match"), message: nil, dismissButton: .default(Text("Okay")))
+        }
+        .alert(isPresented: $invalidFields) {
+            Alert(title: Text("Not all fields have been entered"), dismissButton: .default(Text("Okay")))
         }
     }
     
@@ -96,15 +107,7 @@ struct SignUpView: View {
             return
         }
         
-        withAnimation {
-            self.profile.name = Name(self.firstName, self.lastName)
-            self.profile.email = self.email
-            
-            UserDefaults.standard.set(password, forKey: self.email)
-            print(email + " " + password)
-            
-            self.authenticating.toggle()
-        }
+        proceedToNextScreen.toggle()
     }
     
     func updatePasswordFooter() {
@@ -114,6 +117,14 @@ struct SignUpView: View {
             passwordMsg = "Passwords match!"
         } else {
             passwordMsg = "Passwords do not match!"
+        }
+    }
+    
+    func validate() {
+        if firstName == "" || lastName == "" || email == "" || password == "" || passwordCheck == "" {
+            invalidFields = true
+        } else {
+            invalidFields = false
         }
     }
 }
