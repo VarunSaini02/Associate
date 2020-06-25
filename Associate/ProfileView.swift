@@ -15,7 +15,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack {
-            Image("profilePic")
+            profile.profilePic
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(45)
@@ -23,7 +23,7 @@ struct ProfileView: View {
             Text(profile.name.fullName)
             
             NavigationLink(destination: ProfileDetailView()) {
-                Text("Edit Profile")
+                Text("View Profile")
             }.padding()
             
             Picker(selection: $whichChapter, label: Text("Choose a Chapter:")) {
@@ -45,6 +45,7 @@ struct ProfileView: View {
                 }
             }
         }
+        .padding(.top, 20)
         .navigationBarTitle("Profile", displayMode: .inline)
     }
 }

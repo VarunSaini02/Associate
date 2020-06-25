@@ -62,7 +62,7 @@ struct UploadDetailView: View {
                 }
             }) {
                 ZStack {
-                    LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .leading, endPoint: .trailing)
                         .frame(width: 150, height: 60)
                         .clipShape(Capsule())
                     Text("Save")
@@ -75,7 +75,7 @@ struct UploadDetailView: View {
         }
         .navigationBarTitle("Upload", displayMode: .inline)
         .alert(isPresented: $datesInvalid) {
-            return Alert(title: Text("Error"), message: Text("Please ensure the specified start date occurs before the specified end date."), dismissButton: .default(Text("Return")))
+            return Alert(title: Text("Error"), message: Text("Please ensure the specified start date occurs before the specified end date."), dismissButton: .default(Text("Okay")))
         }
     }
     

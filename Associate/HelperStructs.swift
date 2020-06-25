@@ -10,6 +10,26 @@ import UIKit
 import SwiftUI
 import Combine
 
+
+// light gray linear gradient background (just add .addLightGrayGradientBackground() to a View)
+struct LightGrayLinearGradientInBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.offGray[0], Color.offGray[11]]), startPoint: .top, endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+            
+            content
+        }
+    }
+}
+
+extension View {
+    func addLightGrayGradientBackground() -> some View {
+        self.modifier(LightGrayLinearGradientInBackground())
+    }
+}
+
+// offGray colors array
 extension Color {
     static let offGray: [Color] = [
         Color(red: 110 / 255, green: 110 / 255, blue: 110 / 255),
